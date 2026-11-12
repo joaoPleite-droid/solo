@@ -1,0 +1,2064 @@
+<!doctype html>
+<html lang="pt-BR">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Solo Financiamentos | Financiamento e refinanciamento de veículos em Cascavel-PR</title>
+  <meta name="description" content="Financie ou refinancie seu veículo com a Solopromotora, correspondente autorizado do Banco Daycoval. Sede em Cascavel-PR, 4 unidades, 13 anos de operação.">
+  <meta name="theme-color" content="#7417E6">
+  <meta property="og:title" content="Solo Financiamentos">
+  <meta property="og:description" content="Financiamento e refinanciamento de veículos. Correspondente autorizado Banco Daycoval.">
+  <meta property="og:type" content="website">
+  <meta property="og:locale" content="pt_BR">
+  <link rel="icon" href="logo.png">
+
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=IBM+Plex+Mono:wght@500&family=Nunito:wght@400;600;700;800&display=swap" rel="stylesheet">
+
+  <style>
+    /* =========================================================
+       1. TOKENS
+       ========================================================= */
+    :root {
+      --violeta: #7417E6;
+      --violeta-escuro: #5A0FC0;
+      --violeta-claro: #EFE8FC;
+      --verde: #1E9E2A;
+      --verde-claro: #4FA832;
+      --tinta: #1C1230;
+      --texto-secundario: #5E5670;
+      --fundo: #FAFAFC;
+      --linha: #E4DFEE;
+      --branco: #FFFFFF;
+
+      --fonte: "Nunito", system-ui, -apple-system, "Segoe UI", Roboto, sans-serif;
+      --fonte-mono: "IBM Plex Mono", ui-monospace, "Cascadia Mono", Consolas, monospace;
+
+      /* Escala tipográfica compacta */
+      --fs-xs: 0.8125rem;   /* 13px */
+      --fs-sm: 0.875rem;    /* 14px */
+      --fs-base: 1rem;      /* 16px */
+      --fs-md: 1.125rem;    /* 18px */
+      --fs-lg: clamp(1.25rem, 1.1rem + 0.6vw, 1.5rem);
+      --fs-xl: clamp(1.75rem, 1.35rem + 1.6vw, 2.5rem);
+
+      /* Espaçamento (moderado) */
+      --s-1: 4px;
+      --s-2: 8px;
+      --s-3: 12px;
+      --s-4: 16px;
+      --s-5: 24px;
+      --s-6: 32px;
+      --s-7: 48px;
+      --secao-y: clamp(32px, 4vw, 56px);
+
+      --raio: 10px;
+      --raio-sm: 8px;
+      --raio-lg: 12px;
+      --borda: 1px solid var(--linha);
+
+      --largura: 1160px;
+      --gutter: clamp(16px, 3vw, 32px);
+      --header-h: 60px;
+      --ease: cubic-bezier(.2, .7, .2, 1);
+    }
+
+    /* =========================================================
+       2. RESET
+       ========================================================= */
+    *, *::before, *::after { box-sizing: border-box; }
+    * { margin: 0; }
+    html { -webkit-text-size-adjust: 100%; scroll-behavior: smooth; }
+    body {
+      font-family: var(--fonte);
+      font-size: var(--fs-base);
+      line-height: 1.55;
+      color: var(--tinta);
+      background: var(--fundo);
+      overflow-x: hidden;
+      -webkit-font-smoothing: antialiased;
+    }
+    img, svg { display: block; max-width: 100%; }
+    a { color: inherit; }
+    ul[role="list"], ol[role="list"] { list-style: none; padding: 0; }
+    button { font: inherit; color: inherit; cursor: pointer; }
+    [hidden] { display: none !important; }
+    section[id], main[id] { scroll-margin-top: calc(var(--header-h) + 8px); }
+
+    /* =========================================================
+       3. TIPOGRAFIA
+       ========================================================= */
+    h1, h2, h3 { font-weight: 800; line-height: 1.15; letter-spacing: -0.01em; text-wrap: balance; }
+    h1 { font-size: var(--fs-xl); }
+    h2 { font-size: var(--fs-lg); }
+    h3 { font-size: var(--fs-md); font-weight: 700; }
+    p { text-wrap: pretty; }
+    .lead { font-size: var(--fs-md); color: var(--texto-secundario); max-width: 52ch; }
+    .mono { font-family: var(--fonte-mono); font-weight: 500; font-variant-numeric: tabular-nums; }
+
+    /* =========================================================
+       4. GRID FLUIDO
+       ========================================================= */
+    .wrap {
+      width: 100%;
+      max-width: calc(var(--largura) + 2 * var(--gutter));
+      margin-inline: auto;
+      padding-inline: var(--gutter);
+    }
+    .grid { display: grid; gap: var(--s-5); grid-template-columns: repeat(12, minmax(0, 1fr)); }
+    .col-7 { grid-column: span 7; }
+    .col-5 { grid-column: span 5; }
+    .secao { padding-block: var(--secao-y); }
+
+    @media (max-width: 899px) {
+      .grid { grid-template-columns: minmax(0, 1fr); gap: var(--s-5); }
+      .col-7, .col-5 { grid-column: 1 / -1; }
+    }
+
+    /* =========================================================
+       5. ACESSIBILIDADE
+       ========================================================= */
+    .skip-link {
+      position: absolute; left: var(--s-4); top: -100px; z-index: 100;
+      background: var(--tinta); color: var(--branco);
+      padding: var(--s-2) var(--s-4); border-radius: var(--raio-sm);
+      font-weight: 700; text-decoration: none;
+    }
+    .skip-link:focus { top: var(--s-2); }
+    :focus-visible { outline: 3px solid var(--violeta); outline-offset: 2px; border-radius: 4px; }
+    .no-violeta :focus-visible, .no-violeta:focus-visible { outline-color: var(--branco); }
+    .sr-only {
+      position: absolute; width: 1px; height: 1px; padding: 0; margin: -1px;
+      overflow: hidden; clip: rect(0 0 0 0); white-space: nowrap; border: 0;
+    }
+
+    /* =========================================================
+       6. BOTÕES
+       ========================================================= */
+    .btn {
+      display: inline-flex; align-items: center; justify-content: center; gap: var(--s-2);
+      min-height: 44px; padding: 10px 20px;
+      border: 1px solid transparent; border-radius: var(--raio);
+      font-weight: 700; font-size: var(--fs-base); line-height: 1.2;
+      text-decoration: none; white-space: nowrap;
+      transition: background-color .2s ease, color .2s ease,
+                  border-color .2s ease, transform .2s ease, box-shadow .2s ease;
+    }
+    .btn:hover { transform: translateY(-1px); }
+    .btn:active { transform: translateY(0) scale(.98); }
+    .btn svg { width: 18px; height: 18px; flex: none; }
+
+    .btn-primario { background: var(--violeta); color: var(--branco); }
+    .btn-primario:hover { background: var(--violeta-escuro); }
+
+    .btn-secundario { background: var(--branco); color: var(--violeta); border-color: var(--linha); }
+    .btn-secundario:hover { border-color: var(--violeta); background: var(--violeta-claro); }
+
+    .btn-claro { background: var(--branco); color: var(--violeta); }
+    .btn-claro:hover { background: var(--violeta-claro); }
+
+    /* =========================================================
+       7. TOPBAR
+       ========================================================= */
+    .topbar {
+      background: var(--violeta-escuro); color: var(--branco);
+      font-size: var(--fs-xs); line-height: 1.4;
+    }
+    .topbar .wrap {
+      display: flex; align-items: center; gap: var(--s-5);
+      min-height: 32px; padding-block: 6px;
+    }
+    .topbar-item { display: inline-flex; align-items: center; gap: 6px; white-space: nowrap; }
+    .topbar-item svg { width: 14px; height: 14px; flex: none; opacity: .85; }
+    .topbar-status { margin-left: auto; }
+    .topbar-status::before {
+      content: ""; width: 7px; height: 7px; border-radius: 50%;
+      background: var(--verde-claro); flex: none;
+    }
+
+    @media (max-width: 899px) {
+      .topbar .wrap { flex-wrap: wrap; gap: 2px var(--s-4); }
+      .topbar-status { margin-left: 0; white-space: normal; flex-basis: 100%; }
+    }
+
+    /* =========================================================
+       8. HEADER FIXO
+       ========================================================= */
+    .header {
+      position: sticky; top: 0; z-index: 50;
+      background: var(--violeta); color: var(--branco);
+      border-bottom: 1px solid var(--violeta-escuro);
+    }
+    .header .wrap {
+      display: flex; align-items: center; gap: var(--s-5);
+      height: var(--header-h);
+    }
+    .logo {
+      display: inline-flex; align-items: center; gap: var(--s-2);
+      text-decoration: none; color: var(--branco); flex: none;
+    }
+    .logo img { height: 38px; width: 38px; border-radius: 50%; box-shadow: 0 0 0 2px var(--branco); }
+    .logo-texto { font-weight: 800; font-size: 1.375rem; letter-spacing: -0.02em; }
+    .logo-texto b { color: var(--verde-claro); }
+
+    .nav { margin-left: auto; }
+    .nav ul { display: flex; gap: var(--s-1); }
+    .nav a {
+      position: relative; display: inline-flex; align-items: center;
+      min-height: 44px; padding: 0 var(--s-3);
+      font-weight: 700; font-size: var(--fs-sm); text-decoration: none;
+      color: var(--branco); opacity: .92;
+    }
+    .nav a::after {
+      content: ""; position: absolute; left: var(--s-3); right: var(--s-3); bottom: 10px;
+      height: 2px; background: var(--verde-claro);
+      transform: scaleX(0); transform-origin: left;
+      transition: transform .22s var(--ease);
+    }
+    .nav a:hover { opacity: 1; }
+    .nav a:hover::after { transform: scaleX(1); }
+
+    .header-cta { flex: none; }
+    .header-cta svg { color: var(--verde); }
+
+    .menu-btn {
+      display: none; align-items: center; justify-content: center;
+      width: 44px; height: 44px; margin-left: auto;
+      background: transparent; border: 1px solid rgba(255,255,255,.35);
+      border-radius: var(--raio-sm); color: var(--branco);
+    }
+    .menu-btn svg { width: 22px; height: 22px; }
+    .menu-btn .i-fechar { display: none; }
+    .menu-btn[aria-expanded="true"] .i-abrir { display: none; }
+    .menu-btn[aria-expanded="true"] .i-fechar { display: block; }
+
+    @media (max-width: 899px) {
+      .menu-btn { display: inline-flex; }
+      .header-cta { display: none; }
+      .nav {
+        position: fixed; inset: var(--header-h) 0 0 0;
+        background: var(--violeta); padding: var(--s-4) var(--gutter) var(--s-6);
+        display: none; overflow-y: auto;
+        border-top: 1px solid var(--violeta-escuro);
+      }
+      .nav.aberto { display: flex; flex-direction: column; gap: var(--s-4); }
+      .nav ul { flex-direction: column; gap: 0; }
+      .nav li { border-bottom: 1px solid rgba(255,255,255,.18); }
+      .nav a { width: 100%; min-height: 52px; padding: 0; font-size: var(--fs-md); }
+      .nav a::after { left: 0; right: auto; width: 32px; bottom: 12px; }
+      .nav .nav-cta { display: flex; width: 100%; }
+      body.menu-aberto { overflow: hidden; }
+    }
+    @media (min-width: 900px) { .nav .nav-cta { display: none; } }
+    @media (min-width: 900px) and (max-width: 1080px) {
+      .nav a { padding: 0 var(--s-2); }
+      .nav a::after { left: var(--s-2); right: var(--s-2); }
+      .header .wrap { gap: var(--s-4); }
+    }
+
+    /* =========================================================
+       9. HERO
+       ========================================================= */
+    .hero { background: var(--branco); border-bottom: var(--borda); }
+    .hero .grid { align-items: center; }
+    .hero-chips { display: flex; flex-wrap: wrap; gap: var(--s-2); margin-bottom: var(--s-4); }
+    .chip {
+      display: inline-flex; align-items: center; gap: 6px;
+      padding: 4px 10px; border-radius: 999px;
+      background: var(--violeta-claro); color: var(--violeta-escuro);
+      font-size: var(--fs-xs); font-weight: 700;
+    }
+    .chip::before { content: ""; width: 6px; height: 6px; border-radius: 50%; background: var(--verde); }
+    .hero h1 { max-width: 24ch; }
+    .hero .lead { margin-top: var(--s-3); }
+    .hero-acoes { display: flex; flex-wrap: wrap; gap: var(--s-3); margin-top: var(--s-5); }
+    .hero-acoes .btn-secundario svg { color: var(--verde); }
+
+    .hero-card {
+      background: var(--fundo); border: var(--borda); border-radius: var(--raio-lg);
+      overflow: hidden;
+    }
+    .hero-card-topo {
+      padding: var(--s-3) var(--s-4); border-bottom: var(--borda);
+      font-size: var(--fs-xs); font-weight: 700; color: var(--texto-secundario);
+      text-transform: uppercase; letter-spacing: .06em;
+    }
+    .linha-item {
+      display: grid; grid-template-columns: 40px 1fr; gap: var(--s-3);
+      padding: var(--s-4); border-bottom: var(--borda); background: var(--branco);
+    }
+    .linha-item:last-of-type { border-bottom: 0; }
+    .linha-icone {
+      width: 40px; height: 40px; border-radius: var(--raio-sm);
+      display: grid; place-items: center;
+      background: var(--violeta-claro); color: var(--violeta);
+      border-left: 3px solid var(--verde);
+    }
+    .linha-icone svg { width: 20px; height: 20px; }
+    .linha-item p { font-size: var(--fs-sm); color: var(--texto-secundario); margin-top: 2px; }
+    .hero-card-rodape {
+      display: flex; align-items: center; gap: var(--s-2);
+      padding: var(--s-3) var(--s-4); border-top: var(--borda);
+      font-size: var(--fs-xs); color: var(--texto-secundario);
+    }
+    .hero-card-rodape svg { width: 16px; height: 16px; color: var(--verde); flex: none; }
+
+    @media (max-width: 899px) {
+      .hero-acoes .btn { flex: 1 1 100%; }
+    }
+
+    /* Entrada única do hero */
+    [data-enter] > * { animation: entrar .6s var(--ease) both; }
+    [data-enter] > *:nth-child(2) { animation-delay: .08s; }
+    @keyframes entrar { from { opacity: 0; transform: translateY(10px); } }
+
+    /* =========================================================
+       10. FAIXA DE NÚMEROS (KPIs)
+       ========================================================= */
+    .kpis { padding-block: var(--s-6); }
+    .kpi-faixa {
+      display: grid; grid-template-columns: repeat(4, minmax(0, 1fr));
+      background: var(--branco); border: var(--borda); border-radius: var(--raio-lg);
+    }
+    .kpi {
+      padding: var(--s-4) var(--s-5);
+      border-left: var(--borda);
+      display: flex; flex-direction: column; gap: 2px;
+    }
+    .kpi:first-child { border-left: 0; }
+    .kpi-valor {
+      font-family: var(--fonte-mono); font-weight: 500;
+      font-size: clamp(1.5rem, 1.2rem + 1.2vw, 2rem); line-height: 1.15;
+      color: var(--violeta); font-variant-numeric: tabular-nums;
+      letter-spacing: -0.02em;
+    }
+    .kpi-rotulo { font-size: var(--fs-sm); color: var(--texto-secundario); font-weight: 600; }
+
+    @media (max-width: 899px) {
+      .kpi-faixa { grid-template-columns: repeat(2, minmax(0, 1fr)); }
+      .kpi { padding: var(--s-4); }
+      .kpi:nth-child(3) { border-left: 0; }
+      .kpi:nth-child(n+3) { border-top: var(--borda); }
+    }
+
+    /* =========================================================
+       11. MOVIMENTO REDUZIDO
+       ========================================================= */
+    @media (prefers-reduced-motion: reduce) {
+      html { scroll-behavior: auto; }
+      *, *::before, *::after { animation: none !important; transition: none !important; }
+    }
+
+    /* =========================================================
+       12. LINHAS DE CRÉDITO  (Etapa 2)
+       ========================================================= */
+    .linhas { background: var(--branco); border-top: var(--borda); }
+    .secao-topo {
+      display: flex; align-items: end; justify-content: space-between;
+      gap: var(--s-2) var(--s-5); flex-wrap: wrap; margin-bottom: var(--s-5);
+    }
+    .secao-topo p { color: var(--texto-secundario); max-width: 48ch; }
+
+    .linhas-grid {
+      display: grid; grid-template-columns: repeat(3, minmax(0, 1fr));
+      gap: 1px; background: var(--linha);
+      border: var(--borda); border-radius: var(--raio-lg); overflow: hidden;
+    }
+    .linha-card {
+      display: flex; flex-direction: column; gap: var(--s-2);
+      padding: var(--s-4) var(--s-5) var(--s-3);
+      background: var(--branco);
+      box-shadow: inset 3px 0 0 transparent;
+      transition: background-color .18s var(--ease), box-shadow .18s var(--ease);
+    }
+    .linha-card:hover { background: var(--fundo); }
+    .linha-card.ativa { background: var(--violeta-claro); box-shadow: inset 3px 0 0 var(--verde); }
+    .linha-card-topo { display: flex; align-items: center; gap: var(--s-3); }
+    .linha-card .linha-icone { width: 36px; height: 36px; flex: none; }
+    .linha-card .linha-icone svg { width: 18px; height: 18px; }
+    .linha-card p { font-size: var(--fs-sm); color: var(--texto-secundario); }
+    .linha-link {
+      display: inline-flex; align-items: center; gap: 6px; align-self: flex-start;
+      min-height: 44px; margin-top: auto;
+      font-weight: 700; font-size: var(--fs-sm); color: var(--violeta); text-decoration: none;
+    }
+    .linha-link svg { width: 16px; height: 16px; transition: transform .2s var(--ease); }
+    .linha-link:hover { color: var(--violeta-escuro); }
+    .linha-link:hover svg { transform: translateY(2px); }
+
+    @media (max-width: 899px) {
+      .linhas-grid { grid-template-columns: minmax(0, 1fr); }
+      .linha-card { padding: var(--s-3) var(--s-4) var(--s-1); gap: var(--s-1); }
+    }
+
+    /* =========================================================
+       13. SIMULADOR  (Etapa 2)
+       ========================================================= */
+    #simulador { scroll-margin-top: calc(var(--header-h) + 16px); }
+    .sim {
+      display: grid; grid-template-columns: minmax(0, 7fr) minmax(0, 5fr);
+      margin-top: var(--s-5);
+      border: var(--borda); border-radius: var(--raio-lg); overflow: hidden;
+      background: var(--fundo);
+    }
+    .sim-form { padding: var(--s-5); }
+    .sim-cabecalho { display: flex; align-items: center; justify-content: space-between; gap: var(--s-3); flex-wrap: wrap; margin-bottom: var(--s-4); }
+    .sim-cabecalho h3 { font-size: var(--fs-lg); font-weight: 800; }
+
+    .sim-linha {
+      display: inline-flex; align-items: center; gap: 4px;
+      padding: 2px 4px 2px 10px; border-radius: 999px;
+      background: var(--violeta-claro); color: var(--violeta-escuro);
+      font-size: var(--fs-xs); font-weight: 700;
+    }
+    .sim-linha button {
+      display: grid; place-items: center; width: 28px; height: 28px;
+      border: 0; border-radius: 50%; background: transparent; color: inherit;
+    }
+    .sim-linha button:hover { background: var(--branco); }
+    .sim-linha svg { width: 14px; height: 14px; }
+
+    .campos { display: grid; grid-template-columns: repeat(2, minmax(0, 1fr)); gap: var(--s-4); }
+    .campo-largo { grid-column: 1 / -1; }
+    .campo { min-width: 0; border: 0; padding: 0; }
+    .campo > label, .campo legend {
+      display: block; padding: 0; margin-bottom: 6px;
+      font-size: var(--fs-sm); font-weight: 700; color: var(--tinta);
+    }
+
+    .input, .select {
+      width: 100%; min-height: 44px; padding: 8px 12px;
+      border: 1px solid var(--linha); border-radius: var(--raio-sm);
+      background: var(--branco); color: var(--tinta);
+      font: 500 var(--fs-base)/1.2 var(--fonte-mono);
+      transition: border-color .15s var(--ease);
+    }
+    .input:hover, .select:hover { border-color: #CFC6E0; }
+    .input:focus-visible, .select:focus-visible { outline-offset: 0; border-color: var(--violeta); }
+    .select {
+      appearance: none; padding-right: 36px; cursor: pointer;
+      background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 24 24' fill='none' stroke='%235E5670' stroke-width='2'%3E%3Cpath d='m6 9 6 6 6-6'/%3E%3C/svg%3E");
+      background-repeat: no-repeat; background-position: right 10px center; background-size: 18px;
+    }
+    .input-moeda { position: relative; }
+    .input-moeda span {
+      position: absolute; left: 12px; top: 50%; transform: translateY(-50%);
+      font: 500 var(--fs-base) var(--fonte-mono); color: var(--texto-secundario); pointer-events: none;
+    }
+    .input-moeda .input { padding-left: 42px; }
+    .input[aria-invalid="true"] { border-color: #C0392B; }
+    .campo-erro { margin-top: 4px; font-size: var(--fs-xs); font-weight: 700; color: #B42318; }
+
+    /* Botões segmentados (rádios) */
+    .seg {
+      display: flex; gap: 3px; padding: 3px;
+      background: var(--branco); border: var(--borda); border-radius: var(--raio);
+    }
+    .seg input { position: absolute; opacity: 0; width: 1px; height: 1px; pointer-events: none; }
+    .seg label {
+      flex: 1 1 0; min-width: 0; min-height: 38px;
+      display: grid; place-items: center; padding: 4px 6px;
+      border-radius: var(--raio-sm); cursor: pointer; text-align: center;
+      font-size: var(--fs-sm); font-weight: 700; color: var(--texto-secundario);
+      transition: background-color .15s var(--ease), color .15s var(--ease);
+    }
+    .seg.mono label { font-family: var(--fonte-mono); font-weight: 500; }
+    .seg label:hover { background: var(--violeta-claro); color: var(--violeta-escuro); }
+    .seg input:checked + label { background: var(--violeta); color: var(--branco); }
+    .seg input:focus-visible + label { outline: 3px solid var(--violeta); outline-offset: 1px; }
+
+    /* Resultado */
+    .sim-resultado {
+      display: flex; flex-direction: column; gap: var(--s-4);
+      padding: var(--s-5); background: var(--violeta); color: var(--branco);
+    }
+    .res-rotulo { font-size: var(--fs-sm); font-weight: 700; opacity: .85; }
+    .res-principal .res-valor {
+      font: 500 clamp(1.875rem, 1.5rem + 1.4vw, 2.5rem)/1.1 var(--fonte-mono);
+      letter-spacing: -0.02em; font-variant-numeric: tabular-nums; margin-top: 2px;
+    }
+    .res-linhas { border-top: 1px solid rgba(255,255,255,.25); }
+    .res-linha {
+      display: flex; justify-content: space-between; align-items: baseline; gap: var(--s-3);
+      padding: 10px 0; border-bottom: 1px solid rgba(255,255,255,.25);
+    }
+    .res-linha .mono { font-size: var(--fs-md); }
+    .res-aviso {
+      display: flex; gap: var(--s-2); font-size: var(--fs-xs); line-height: 1.45; opacity: .92;
+    }
+    .res-aviso svg { width: 16px; height: 16px; flex: none; margin-top: 1px; }
+    .res-acoes { display: grid; gap: var(--s-2); margin-top: auto; }
+    .res-acoes .btn { width: 100%; }
+    .res-acoes .btn-claro svg { color: var(--verde); }
+    .btn-contorno {
+      background: transparent; color: var(--branco); border-color: rgba(255,255,255,.55);
+    }
+    .btn-contorno:hover { background: var(--violeta-escuro); border-color: var(--branco); }
+    .btn[aria-disabled="true"] { opacity: .5; pointer-events: none; }
+    .btn.copiado { background: var(--branco); color: var(--violeta-escuro); border-color: var(--branco); }
+
+    @media (max-width: 899px) {
+      .sim { grid-template-columns: minmax(0, 1fr); }
+      .sim-form, .sim-resultado { padding: var(--s-4); }
+    }
+    @media (max-width: 599px) {
+      .campos { grid-template-columns: minmax(0, 1fr); gap: var(--s-3); }
+    }
+
+    /* =========================================================
+       14. COMO FUNCIONA  (Etapa 3)
+       ========================================================= */
+    .como { background: var(--fundo); border-top: var(--borda); }
+    .etapas {
+      display: grid; grid-template-columns: repeat(5, minmax(0, 1fr));
+      gap: 1px; background: var(--linha);
+      border: var(--borda); border-radius: var(--raio-lg); overflow: hidden;
+      counter-reset: km;
+    }
+    .etapa {
+      position: relative; display: flex; flex-direction: column; gap: var(--s-2);
+      padding: var(--s-4); background: var(--branco);
+    }
+    .etapa-km {
+      display: inline-flex; align-items: center; gap: var(--s-2);
+      font: 500 var(--fs-xs)/1 var(--fonte-mono); letter-spacing: .04em;
+      color: var(--texto-secundario);
+    }
+    .etapa-km::before {
+      content: ""; width: 10px; height: 10px; border-radius: 50%;
+      border: 2px solid var(--verde); background: var(--branco); flex: none;
+    }
+    .etapa:last-child .etapa-km::before { background: var(--verde); }
+    .etapa h3 { font-size: var(--fs-base); }
+    .etapa p { font-size: var(--fs-sm); color: var(--texto-secundario); }
+    /* Faixa de "estrada" no topo de cada etapa */
+    .etapa::before {
+      content: ""; position: absolute; left: 0; right: 0; top: 0; height: 0;
+      border-top: 3px dashed var(--violeta); opacity: .3;
+    }
+
+    @media (max-width: 899px) {
+      .etapas { grid-template-columns: minmax(0, 1fr); }
+      .etapa {
+        display: grid; grid-template-columns: 64px minmax(0, 1fr); gap: 2px var(--s-3);
+        padding: var(--s-3) var(--s-4);
+      }
+      .etapa::before { display: none; }
+      .etapa-km { grid-row: 1 / span 2; align-self: start; padding-top: 3px; }
+    }
+
+    /* Alerta antifraude */
+    .alerta {
+      display: grid; grid-template-columns: 24px minmax(0, 1fr); gap: var(--s-3);
+      margin-top: var(--s-4); padding: var(--s-4) var(--s-5);
+      background: var(--violeta-claro); border-left: 4px solid var(--violeta);
+      border-radius: var(--raio-sm);
+    }
+    .alerta svg { width: 24px; height: 24px; color: var(--violeta); }
+    .alerta strong { display: block; color: var(--violeta-escuro); }
+    .alerta p { font-size: var(--fs-sm); color: var(--tinta); }
+
+    /* =========================================================
+       15. DEPOIMENTOS  (Etapa 3)
+       ========================================================= */
+    .depoimentos { background: var(--branco); border-top: var(--borda); }
+    .depo-grid {
+      display: grid; grid-template-columns: repeat(3, minmax(0, 1fr));
+      gap: 1px; background: var(--linha);
+      border: var(--borda); border-radius: var(--raio-lg); overflow: hidden;
+    }
+    .depo {
+      display: flex; flex-direction: column; gap: var(--s-4);
+      padding: var(--s-5); background: var(--branco);
+    }
+    .depo blockquote {
+      padding-left: var(--s-3); border-left: 3px solid var(--verde);
+      font-size: var(--fs-md); font-weight: 600; line-height: 1.45; color: var(--tinta);
+    }
+    .depo figcaption { display: flex; align-items: center; gap: var(--s-3); margin-top: auto; }
+    .depo-inicial {
+      display: grid; place-items: center; width: 36px; height: 36px; flex: none;
+      border-radius: 50%; background: var(--violeta-claro); color: var(--violeta-escuro);
+      font-weight: 800; font-size: var(--fs-sm);
+    }
+    .depo-nome { display: block; font-weight: 700; font-size: var(--fs-sm); }
+    .depo-local { display: block; font-size: var(--fs-xs); color: var(--texto-secundario); }
+
+    @media (max-width: 899px) {
+      .depo-grid { grid-template-columns: minmax(0, 1fr); }
+      .depo { padding: var(--s-4); gap: var(--s-3); }
+    }
+
+    /* =========================================================
+       16. PARA LOJISTAS  (Etapa 4 — mobile first)
+       ========================================================= */
+    .lojistas { background: var(--branco); border-top: var(--borda); }
+    .lojistas-grid { display: grid; grid-template-columns: minmax(0, 1fr); gap: var(--s-4); }
+    .lojistas-texto h2 { margin-bottom: var(--s-2); }
+    .lojistas-texto p { color: var(--texto-secundario); }
+    .lojistas-pontos { display: grid; gap: var(--s-2); margin-top: var(--s-3); }
+    .lojistas-pontos li {
+      display: flex; gap: var(--s-2); align-items: baseline;
+      font-size: var(--fs-sm); font-weight: 600; color: var(--tinta);
+    }
+    .lojistas-pontos li::before {
+      content: ""; width: 8px; height: 8px; border-radius: 2px; flex: none;
+      background: var(--verde); transform: translateY(-1px);
+    }
+
+    .form-card {
+      background: var(--branco); border: var(--borda); border-radius: var(--raio-lg);
+      padding: var(--s-4);
+    }
+    .form-campos { display: grid; gap: var(--s-3); }
+    .input-texto { font-family: var(--fonte); font-weight: 600; }
+    .form-acoes { margin-top: var(--s-4); }
+    .form-acoes .btn { width: 100%; }
+    .form-resultado {
+      display: grid; gap: var(--s-3); margin-top: var(--s-4); padding: var(--s-4);
+      background: var(--violeta-claro); border-left: 4px solid var(--violeta);
+      border-radius: var(--raio-sm);
+    }
+    .form-resultado p { font-size: var(--fs-sm); font-weight: 600; }
+    .form-resultado .btn { width: 100%; }
+    .form-resultado .btn svg { color: var(--branco); }
+
+    @media (min-width: 600px) {
+      .form-campos { grid-template-columns: repeat(2, minmax(0, 1fr)); gap: var(--s-4); }
+      .form-acoes .btn, .form-resultado .btn { width: auto; }
+      .form-resultado { grid-template-columns: minmax(0, 1fr) auto; align-items: center; }
+    }
+    @media (min-width: 900px) {
+      .lojistas-grid { grid-template-columns: minmax(0, 5fr) minmax(0, 7fr); gap: var(--s-6); align-items: start; }
+      .form-card { padding: var(--s-5); }
+    }
+
+    /* =========================================================
+       17. UNIDADES  (Etapa 4 — mobile first)
+       ========================================================= */
+    .unidades { background: var(--fundo); border-top: var(--borda); }
+    .unidades .secao-topo { align-items: center; }
+    .unidades .secao-topo h2 + p { margin-top: 4px; }
+    .secao-topo .status-badge {
+      display: inline-flex; align-items: center; gap: var(--s-2);
+      min-height: 32px; padding: 4px 12px; border-radius: 999px;
+      background: var(--branco); border: var(--borda);
+      font-size: var(--fs-sm); font-weight: 700; color: var(--tinta);
+    }
+    .status-badge::before {
+      content: ""; width: 8px; height: 8px; border-radius: 50%; flex: none;
+      background: var(--texto-secundario);
+    }
+    .status-badge.aberto::before { background: var(--verde); box-shadow: 0 0 0 3px #DDF2DF; }
+
+    .unidades-grid { display: grid; grid-template-columns: minmax(0, 1fr); gap: var(--s-4); }
+
+    /* Mapa */
+    .mapa-card {
+      background: var(--tinta); color: var(--branco);
+      border-radius: var(--raio-lg); padding: var(--s-4);
+      display: grid; gap: var(--s-3);
+    }
+    .mapa-svg { width: 100%; height: auto; max-height: 320px; margin-inline: auto; }
+    .mapa-estado { fill: #2A1F42; stroke: #6F5E95; stroke-width: 1.5; stroke-linejoin: round; }
+    .mapa-estado-sc { fill: none; stroke: #4A3D66; stroke-width: 1.2; stroke-dasharray: 4 4; }
+    .mapa-sigla { fill: #8C7EAA; font: 500 13px var(--fonte-mono); letter-spacing: .08em; }
+    .mapa-rota {
+      fill: none; stroke: var(--violeta); stroke-width: 2.5; stroke-dasharray: 6 6;
+      stroke-linecap: round;
+      animation: rota 1.6s linear infinite;
+    }
+    @keyframes rota { to { stroke-dashoffset: -24; } }
+    .mapa-ponto a { cursor: pointer; outline: none; }
+    .mapa-ponto .anel { fill: none; stroke: var(--verde-claro); stroke-width: 2; opacity: 0; transition: opacity .2s var(--ease); }
+    .mapa-ponto .nucleo { fill: var(--verde); stroke: var(--tinta); stroke-width: 2; transition: transform .2s var(--ease); transform-box: fill-box; transform-origin: center; }
+    .mapa-ponto.sede .nucleo { fill: var(--branco); stroke: var(--verde); stroke-width: 4; }
+    .mapa-ponto text { fill: var(--branco); font: 700 17px var(--fonte); paint-order: stroke; stroke: var(--tinta); stroke-width: 4px; stroke-linejoin: round; }
+    .mapa-ponto .rotulo-sede { fill: #B9AED0; font: 500 12px var(--fonte-mono); letter-spacing: .08em; }
+    .mapa-ponto.foco .anel, .mapa-ponto.perto .anel, .mapa-ponto a:focus-visible .anel { opacity: 1; }
+    .mapa-ponto.foco .nucleo, .mapa-ponto.perto .nucleo { transform: scale(1.25); }
+    .mapa-ponto a:focus-visible .anel { stroke: var(--branco); stroke-width: 3; }
+
+    .geo { display: grid; gap: var(--s-2); }
+    .geo .btn { width: 100%; }
+    .geo .btn svg { color: var(--verde-claro); }
+    .geo-status { font-size: var(--fs-sm); color: #D9D2E8; }
+    .geo-status:empty { display: none; }
+    .geo-status strong { color: var(--branco); }
+    .geo-status.erro { color: #F2C9D0; }
+
+    /* Endereços */
+    .enderecos {
+      display: grid; gap: 1px; background: var(--linha);
+      border: var(--borda); border-radius: var(--raio-lg); overflow: hidden;
+      align-content: start;
+    }
+    .endereco {
+      display: grid; grid-template-columns: minmax(0, 1fr) auto; align-items: center;
+      gap: var(--s-2) var(--s-3); padding: var(--s-3) var(--s-4); background: var(--branco);
+      transition: background-color .18s var(--ease), box-shadow .18s var(--ease);
+      box-shadow: inset 3px 0 0 transparent;
+    }
+    .endereco.foco { background: var(--fundo); }
+    .endereco.perto { background: var(--violeta-claro); box-shadow: inset 3px 0 0 var(--verde); }
+    .endereco h3 { font-size: var(--fs-base); display: flex; flex-wrap: wrap; align-items: center; gap: 4px var(--s-2); }
+    .endereco address { font-style: normal; font-size: var(--fs-sm); color: var(--texto-secundario); }
+    .tag {
+      display: inline-flex; padding: 1px 8px; border-radius: 999px;
+      font-size: var(--fs-xs); font-weight: 700;
+      background: var(--violeta-claro); color: var(--violeta-escuro);
+    }
+    .tag-perto { background: var(--violeta); color: var(--branco); }
+    .endereco-dist { font: 500 var(--fs-xs) var(--fonte-mono); color: var(--texto-secundario); }
+    .mapa-link {
+      display: inline-grid; place-items: center; width: 44px; height: 44px;
+      border: var(--borda); border-radius: var(--raio-sm); color: var(--violeta);
+      background: var(--branco);
+      transition: border-color .18s var(--ease), background-color .18s var(--ease), transform .18s var(--ease);
+    }
+    .mapa-link:hover { border-color: var(--violeta); background: var(--violeta-claro); transform: translateY(-1px); }
+    .mapa-link svg { width: 18px; height: 18px; }
+
+    @media (min-width: 900px) {
+      .unidades-grid { grid-template-columns: minmax(0, 5fr) minmax(0, 7fr); gap: var(--s-5); align-items: stretch; }
+      .mapa-card { padding: var(--s-4) var(--s-5) var(--s-5); align-content: space-between; }
+      .mapa-svg { max-height: 300px; }
+      .enderecos { grid-auto-rows: 1fr; }
+      .endereco { padding: var(--s-4) var(--s-5); }
+    }
+    @media (prefers-reduced-motion: reduce) { .mapa-rota { animation: none; } }
+
+    /* =========================================================
+       18. SOBRE  (Etapa 5 — mobile first)
+       ========================================================= */
+    .sobre { background: var(--fundo); border-top: var(--borda); }
+    .sobre-grid { display: grid; grid-template-columns: minmax(0, 1fr); gap: var(--s-5); }
+    .sobre-texto h2 { margin-bottom: var(--s-2); }
+    .sobre-texto p { color: var(--texto-secundario); }
+    .sobre-texto p + p { margin-top: var(--s-2); }
+    .sobre-texto strong { color: var(--tinta); }
+    .valores { display: flex; flex-wrap: wrap; gap: var(--s-2); margin-top: var(--s-4); }
+    .valores .chip { font-size: var(--fs-sm); padding: 6px 12px; }
+
+    .timeline {
+      display: grid; gap: 1px; background: var(--linha);
+      border: var(--borda); border-radius: var(--raio-lg); overflow: hidden;
+    }
+    .marco {
+      display: grid; grid-template-columns: 88px minmax(0, 1fr); align-items: center; gap: var(--s-3);
+      padding: var(--s-3) var(--s-4); background: var(--branco);
+    }
+    .marco-ano { font: 500 var(--fs-md)/1.2 var(--fonte-mono); color: var(--violeta); }
+    .marco p { font-size: var(--fs-sm); font-weight: 600; }
+    .timeline-titulo { font-size: var(--fs-sm); font-weight: 700; color: var(--texto-secundario); margin-bottom: var(--s-2); text-transform: uppercase; letter-spacing: .06em; }
+
+    @media (min-width: 900px) {
+      .sobre-grid { grid-template-columns: minmax(0, 7fr) minmax(0, 5fr); gap: var(--s-6); align-items: center; }
+      .marco { grid-template-columns: 1fr; gap: 2px; padding: var(--s-4); }
+      .timeline { grid-template-columns: repeat(3, minmax(0, 1fr)); }
+    }
+
+    /* =========================================================
+       19. DÚVIDAS FREQUENTES  (Etapa 5)
+       ========================================================= */
+    .duvidas { background: var(--branco); border-top: var(--borda); }
+    .faq-grid { display: grid; grid-template-columns: minmax(0, 1fr); gap: var(--s-4); }
+    .faq-lista {
+      border: var(--borda); border-radius: var(--raio-lg); overflow: hidden; background: var(--branco);
+    }
+    .faq-item + .faq-item { border-top: var(--borda); }
+    .faq-item summary {
+      display: flex; align-items: center; justify-content: space-between; gap: var(--s-3);
+      min-height: 52px; padding: var(--s-3) var(--s-4);
+      font-weight: 700; cursor: pointer; list-style: none;
+      transition: background-color .15s var(--ease);
+    }
+    .faq-item summary::-webkit-details-marker { display: none; }
+    .faq-item summary:hover { background: var(--fundo); }
+    .faq-item summary:focus-visible { outline-offset: -3px; }
+    .faq-item summary svg { width: 18px; height: 18px; flex: none; color: var(--violeta); transition: transform .2s var(--ease); }
+    .faq-item[open] summary svg { transform: rotate(180deg); }
+    .faq-item[open] summary { box-shadow: inset 3px 0 0 var(--verde); }
+    .faq-resposta { padding: 0 var(--s-4) var(--s-4); color: var(--texto-secundario); font-size: var(--fs-sm); }
+
+    @media (min-width: 900px) {
+      .faq-grid { grid-template-columns: minmax(0, 4fr) minmax(0, 8fr); gap: var(--s-6); align-items: start; }
+      .faq-item summary { padding: var(--s-3) var(--s-5); }
+      .faq-resposta { padding: 0 var(--s-5) var(--s-4); }
+    }
+
+    /* =========================================================
+       20. CONTATOS  (Etapa 5)
+       ========================================================= */
+    .contatos { background: var(--fundo); border-top: var(--borda); }
+    .contatos-grid {
+      display: grid; gap: 1px; background: var(--linha);
+      border: var(--borda); border-radius: var(--raio-lg); overflow: hidden;
+    }
+    .contato {
+      display: grid; grid-template-columns: 40px minmax(0, 1fr) 20px; align-items: center; gap: var(--s-3);
+      min-height: 64px; padding: var(--s-3) var(--s-4);
+      background: var(--branco); text-decoration: none;
+      transition: background-color .18s var(--ease);
+    }
+    .contato:hover { background: var(--violeta-claro); }
+    .contato:focus-visible { outline-offset: -3px; }
+    .contato-icone {
+      display: grid; place-items: center; width: 40px; height: 40px; border-radius: var(--raio-sm);
+      background: var(--violeta-claro); color: var(--verde);
+    }
+    .contato:hover .contato-icone { background: var(--branco); }
+    .contato-icone svg { width: 20px; height: 20px; }
+    .contato-assunto { display: block; font-size: var(--fs-sm); font-weight: 700; color: var(--texto-secundario); }
+    .contato-valor { display: block; font: 500 var(--fs-base)/1.3 var(--fonte-mono); color: var(--tinta); }
+    .contato-seta { width: 18px; height: 18px; color: var(--violeta); transition: transform .18s var(--ease); }
+    .contato:hover .contato-seta { transform: translateX(3px); }
+
+    @media (min-width: 600px) { .contatos-grid { grid-template-columns: repeat(2, minmax(0, 1fr)); } }
+    @media (min-width: 1080px) { .contatos-grid { grid-template-columns: repeat(4, minmax(0, 1fr)); } }
+
+    /* =========================================================
+       21. RODAPÉ  (Etapa 5)
+       ========================================================= */
+    .rodape { background: var(--tinta); color: #CFC7DF; font-size: var(--fs-sm); }
+    .rodape .wrap { padding-block: var(--s-6) var(--s-5); display: grid; gap: var(--s-5); }
+    .rodape-marca { display: flex; align-items: center; gap: var(--s-3); }
+    .rodape-marca .logo-redondo { width: 44px; height: 44px; border-radius: 50%; flex: none; }
+    .rodape-marca .logo-nome { height: 40px; width: auto; max-width: 100%; }
+    .rodape-marca-texto { color: var(--branco); font-weight: 800; font-size: var(--fs-lg); }
+    .rodape-legal { display: grid; gap: var(--s-3); max-width: 70ch; }
+    .rodape-legal strong { color: var(--branco); }
+    .rodape-banco {
+      display: grid; gap: var(--s-2);
+      border-top: 1px solid #3A2E55; padding-top: var(--s-4);
+    }
+    .rodape-banco a {
+      display: inline-flex; align-items: center; gap: var(--s-2); min-height: 44px;
+      color: var(--branco); text-decoration: none; font-weight: 700;
+    }
+    .rodape-banco a span { font: 500 var(--fs-base) var(--fonte-mono); color: #CFC7DF; }
+    .rodape-banco a:hover span { color: var(--branco); text-decoration: underline; text-underline-offset: 3px; }
+    .rodape-base {
+      display: flex; flex-wrap: wrap; justify-content: space-between; gap: var(--s-2) var(--s-4);
+      border-top: 1px solid #3A2E55; padding-top: var(--s-4); font-size: var(--fs-xs); color: #A79DBD;
+    }
+    .rodape :focus-visible { outline-color: var(--branco); }
+
+    @media (min-width: 900px) {
+      .rodape .wrap { grid-template-columns: minmax(0, 7fr) minmax(0, 5fr); column-gap: var(--s-7); }
+      .rodape-marca, .rodape-base { grid-column: 1 / -1; }
+      .rodape-banco { border-top: 0; padding-top: 0; border-left: 1px solid #3A2E55; padding-left: var(--s-5); align-content: start; }
+    }
+
+    /* =========================================================
+       22. POLIMENTO FINAL — microinterações e movimento
+       (tudo desligado em prefers-reduced-motion, bloco 23)
+       ========================================================= */
+    /* Transição fluida e uniforme em links e controles */
+    a, summary, .seg label, .mapa-link, .contato, .linha-link, .nav a, .menu-btn, .sim-linha button {
+      transition-duration: .2s; transition-timing-function: ease;
+    }
+    .btn-primario:hover { box-shadow: 0 4px 12px rgba(116, 23, 230, .25); }
+    .btn:active, .mapa-link:active, .contato:active, .linha-link:active { transform: scale(.97); }
+    .linha-card, .depo, .endereco { transition: background-color .2s ease, box-shadow .2s ease; }
+
+    /* Scroll reveal (as classes só entram via JS; sem JS tudo fica visível) */
+    .reveal {
+      opacity: 0; transform: translateY(14px);
+      transition: opacity .6s cubic-bezier(.2, .7, .2, 1), transform .6s cubic-bezier(.2, .7, .2, 1);
+      transition-delay: var(--atraso, 0ms);
+    }
+    .reveal.visivel { opacity: 1; transform: none; }
+
+    /* Simulador: destaque suave ao selecionar */
+    .seg label { transition: background-color .2s ease, color .2s ease, transform .2s ease; }
+    .seg input:checked + label { animation: selecionar .25s ease; }
+    @keyframes selecionar { 0% { transform: scale(.94); } 60% { transform: scale(1.03); } 100% { transform: scale(1); } }
+    .res-valor.atualizado, #res-entrada.atualizado { animation: atualizar .35s ease; }
+    @keyframes atualizar { 0% { opacity: .55; transform: translateY(3px); } 100% { opacity: 1; transform: none; } }
+    .res-valor, #res-entrada { display: inline-block; }
+
+    /* Pulso discreto: "Aberto agora" */
+    .secao-topo .status-badge.aberto::before { animation: pulso-badge 2.4s ease-out infinite; }
+    @keyframes pulso-badge {
+      0%   { box-shadow: 0 0 0 0 rgba(30, 158, 42, .45); }
+      70%  { box-shadow: 0 0 0 7px rgba(30, 158, 42, 0); }
+      100% { box-shadow: 0 0 0 0 rgba(30, 158, 42, 0); }
+    }
+
+    /* Pulso discreto: pinos do mapa */
+    .mapa-ponto .anel {
+      transform-box: fill-box; transform-origin: center;
+      animation: pulso-pino 2.8s ease-out infinite;
+    }
+    .mapa-ponto[data-unidade="campo-mourao"] .anel { animation-delay: .7s; }
+    .mapa-ponto[data-unidade="passo-fundo"] .anel  { animation-delay: 1.4s; }
+    .mapa-ponto[data-unidade="porto-alegre"] .anel { animation-delay: 2.1s; }
+    @keyframes pulso-pino {
+      0%   { opacity: .7; transform: scale(.55); }
+      80%  { opacity: 0;  transform: scale(1.35); }
+      100% { opacity: 0;  transform: scale(1.35); }
+    }
+    .mapa-ponto.foco .anel, .mapa-ponto.perto .anel, .mapa-ponto a:focus-visible .anel {
+      animation: none; opacity: 1; transform: none;
+    }
+
+    /* =========================================================
+       23. MOVIMENTO REDUZIDO — desliga reveal, pulsos e contadores
+       ========================================================= */
+    @media (prefers-reduced-motion: reduce) {
+      .reveal, .reveal.visivel { opacity: 1 !important; transform: none !important; }
+      .mapa-ponto .anel { animation: none !important; opacity: 0; }
+      .mapa-ponto.foco .anel, .mapa-ponto.perto .anel, .mapa-ponto a:focus-visible .anel { opacity: 1; }
+      .secao-topo .status-badge.aberto::before { animation: none !important; }
+      .btn:hover, .btn:active, .mapa-link:hover, .mapa-link:active, .contato:active, .linha-link:active { transform: none; }
+    }
+
+    /* ---- FIM DOS ESTILOS ---- */
+  </style>
+</head>
+<body>
+  <a class="skip-link" href="#conteudo">Ir para o conteúdo</a>
+
+  <!-- ===================== TOPBAR ===================== -->
+  <div class="topbar">
+    <div class="wrap">
+      <span class="topbar-item">
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true"><circle cx="12" cy="12" r="9"/><path d="M12 7v5l3 2"/></svg>
+        Seg. a sex., 8h às 18h
+      </span>
+      <span class="topbar-item">
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true"><path d="M12 21s-7-6.2-7-11a7 7 0 0 1 14 0c0 4.8-7 11-7 11Z"/><circle cx="12" cy="10" r="2.5"/></svg>
+        Cascavel-PR
+      </span>
+      <span class="topbar-item topbar-status">Correspondente autorizado Banco Daycoval — Res. CMN nº 4.935/2021</span>
+    </div>
+  </div>
+
+  <!-- ===================== HEADER ===================== -->
+  <header class="header no-violeta">
+    <div class="wrap">
+      <a class="logo" href="#topo" aria-label="Solo Financiamentos, início">
+        <img src="logo.png" alt="" width="38" height="38" id="logo-img">
+        <span class="logo-texto" id="logo-fallback" hidden>Solo<b>.</b></span>
+      </a>
+
+      <button class="menu-btn" type="button" aria-expanded="false" aria-controls="nav-principal" aria-label="Abrir menu">
+        <svg class="i-abrir" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" aria-hidden="true"><path d="M4 7h16M4 12h16M4 17h16"/></svg>
+        <svg class="i-fechar" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" aria-hidden="true"><path d="M6 6l12 12M18 6 6 18"/></svg>
+      </button>
+
+      <nav class="nav" id="nav-principal" aria-label="Principal">
+        <ul role="list">
+          <li><a href="#linhas">Linhas</a></li>
+          <li><a href="#simulador">Simular</a></li>
+          <li><a href="#como-funciona">Como funciona</a></li>
+          <li><a href="#unidades">Unidades</a></li>
+          <li><a href="#sobre">Sobre</a></li>
+          <li><a href="#duvidas">Dúvidas</a></li>
+        </ul>
+        <a class="btn btn-claro nav-cta" href="https://wa.me/5545999204449" rel="noopener">Falar no WhatsApp</a>
+      </nav>
+
+      <a class="btn btn-claro header-cta" href="https://wa.me/5545999204449" rel="noopener">
+        <svg viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M12 2a10 10 0 0 0-8.6 15.1L2 22l5-1.3A10 10 0 1 0 12 2Zm0 18.2a8.2 8.2 0 0 1-4.2-1.2l-.3-.2-3 .8.8-2.9-.2-.3A8.2 8.2 0 1 1 12 20.2Zm4.5-6.1c-.2-.1-1.5-.7-1.7-.8-.2-.1-.4-.1-.6.1l-.8 1c-.1.2-.3.2-.5.1a6.7 6.7 0 0 1-3.3-2.9c-.3-.4.2-.4.7-1.3.1-.2 0-.3 0-.4l-.8-1.8c-.2-.5-.4-.4-.6-.4h-.5a1 1 0 0 0-.7.3 3 3 0 0 0-.9 2.2 5.2 5.2 0 0 0 1.1 2.7 11.8 11.8 0 0 0 4.5 4c1.7.7 2.3.8 3.2.6a2.7 2.7 0 0 0 1.8-1.2 2.2 2.2 0 0 0 .2-1.3c-.1-.1-.3-.2-.6-.3Z"/></svg>
+        WhatsApp
+      </a>
+    </div>
+  </header>
+
+  <main id="conteudo" tabindex="-1">
+
+    <!-- ===================== HERO ===================== -->
+    <section class="hero secao" id="topo" aria-labelledby="hero-titulo">
+      <div class="wrap grid" data-enter>
+        <div class="col-7">
+          <div class="hero-chips">
+            <span class="chip">Financiamento</span>
+            <span class="chip">Refinanciamento</span>
+          </div>
+          <h1 id="hero-titulo">Financiamento de veículos em Cascavel e região</h1>
+          <p class="lead">Compre seu veículo ou use o que já tem para liberar crédito. Atendimento direto, com análise do Banco Daycoval.</p>
+          <div class="hero-acoes">
+            <a class="btn btn-primario" href="#simulador">Simular meu crédito</a>
+            <a class="btn btn-secundario" href="https://wa.me/5545999204449" rel="noopener">
+              <svg viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M12 2a10 10 0 0 0-8.6 15.1L2 22l5-1.3A10 10 0 1 0 12 2Zm0 18.2a8.2 8.2 0 0 1-4.2-1.2l-.3-.2-3 .8.8-2.9-.2-.3A8.2 8.2 0 1 1 12 20.2Zm4.5-6.1c-.2-.1-1.5-.7-1.7-.8-.2-.1-.4-.1-.6.1l-.8 1c-.1.2-.3.2-.5.1a6.7 6.7 0 0 1-3.3-2.9c-.3-.4.2-.4.7-1.3.1-.2 0-.3 0-.4l-.8-1.8c-.2-.5-.4-.4-.6-.4h-.5a1 1 0 0 0-.7.3 3 3 0 0 0-.9 2.2 5.2 5.2 0 0 0 1.1 2.7 11.8 11.8 0 0 0 4.5 4c1.7.7 2.3.8 3.2.6a2.7 2.7 0 0 0 1.8-1.2 2.2 2.2 0 0 0 .2-1.3c-.1-.1-.3-.2-.6-.3Z"/></svg>
+              Falar no WhatsApp
+            </a>
+          </div>
+        </div>
+
+        <div class="col-5">
+          <div class="hero-card">
+            <div class="hero-card-topo">Duas linhas de crédito</div>
+            <div class="linha-item">
+              <span class="linha-icone" aria-hidden="true">
+                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M5 17h14v-4l-2-5H7l-2 5v4Z"/><circle cx="8" cy="17" r="2"/><circle cx="16" cy="17" r="2"/><path d="M5 13h14"/></svg>
+              </span>
+              <div>
+                <h3>Financiamento</h3>
+                <p>Compre seu veículo e pague em parcelas.</p>
+              </div>
+            </div>
+            <div class="linha-item">
+              <span class="linha-icone" aria-hidden="true">
+                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M21 12a9 9 0 1 1-3-6.7"/><path d="M21 4v5h-5"/><path d="M12 8v8M9.5 10.5c0-1 1-1.5 2.5-1.5s2.5.6 2.5 1.5c0 2-5 1-5 3 0 1 1 1.5 2.5 1.5s2.5-.5 2.5-1.5"/></svg>
+              </span>
+              <div>
+                <h3>Refinanciamento</h3>
+                <p>Use seu veículo como garantia e libere crédito.</p>
+              </div>
+            </div>
+            <div class="hero-card-rodape">
+              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M12 3 4 6v6c0 4.5 3.4 8 8 9 4.6-1 8-4.5 8-9V6l-8-3Z"/><path d="m8.5 12 2.5 2.5 4.5-5"/></svg>
+              Correspondente autorizado Banco Daycoval
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- ===================== FAIXA DE NÚMEROS ===================== -->
+    <section class="kpis" aria-labelledby="kpis-titulo">
+      <div class="wrap">
+        <h2 id="kpis-titulo" class="sr-only">A Solo em números</h2>
+        <ul class="kpi-faixa" role="list">
+          <li class="kpi"><span class="kpi-valor">14.573</span><span class="kpi-rotulo">veículos financiados</span></li>
+          <li class="kpi"><span class="kpi-valor">5.475</span><span class="kpi-rotulo">refinanciados</span></li>
+          <li class="kpi"><span class="kpi-valor">13</span><span class="kpi-rotulo">anos de operação</span></li>
+          <li class="kpi"><span class="kpi-valor">4</span><span class="kpi-rotulo">unidades</span></li>
+        </ul>
+      </div>
+    </section>
+
+    <!-- ===================== LINHAS DE CRÉDITO + SIMULADOR (Etapa 2) ===================== -->
+    <section class="linhas secao" id="linhas" aria-labelledby="linhas-titulo">
+      <div class="wrap">
+        <div class="secao-topo">
+          <h2 id="linhas-titulo">Linhas de crédito</h2>
+          <p>Escolha a linha e veja o crédito estimado na hora.</p>
+        </div>
+
+        <ul class="linhas-grid" role="list">
+          <li class="linha-card">
+            <div class="linha-card-topo">
+              <span class="linha-icone" aria-hidden="true"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M5 17h14v-4l-2-5H7l-2 5v4Z"/><circle cx="8" cy="17" r="2"/><circle cx="16" cy="17" r="2"/><path d="M5 13h14"/></svg></span>
+              <h3>Financiamento de carros</h3>
+            </div>
+            <p>Comprados em loja ou de particular.</p>
+            <a class="linha-link" href="#simulador" data-linha="Financiamento de carros" data-tipo="Carro" data-origem="Loja">Simular esta linha <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M12 5v14M6 13l6 6 6-6"/></svg></a>
+          </li>
+          <li class="linha-card">
+            <div class="linha-card-topo">
+              <span class="linha-icone" aria-hidden="true"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M2 6h11v10H2zM13 9h4l4 4v3h-8z"/><circle cx="6" cy="17.5" r="1.8"/><circle cx="17" cy="17.5" r="1.8"/></svg></span>
+              <h3>Financiamento de caminhões</h3>
+            </div>
+            <p>Inclui o primeiro caminhão (até R$ 100 mil ou 70% da tabela).</p>
+            <a class="linha-link" href="#simulador" data-linha="Financiamento de caminhões" data-tipo="Caminhão" data-percentual="70">Simular esta linha <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M12 5v14M6 13l6 6 6-6"/></svg></a>
+          </li>
+          <li class="linha-card">
+            <div class="linha-card-topo">
+              <span class="linha-icone" aria-hidden="true"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="5" cy="16" r="3"/><circle cx="19" cy="16" r="3"/><path d="M5 16h6l3-6h3l2 6M14 10l-2-3H9"/></svg></span>
+              <h3>Financiamento de motos</h3>
+            </div>
+            <p>Condições ágeis para aquisição.</p>
+            <a class="linha-link" href="#simulador" data-linha="Financiamento de motos" data-tipo="Moto">Simular esta linha <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M12 5v14M6 13l6 6 6-6"/></svg></a>
+          </li>
+          <li class="linha-card">
+            <div class="linha-card-topo">
+              <span class="linha-icone" aria-hidden="true"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="8" cy="7" r="3"/><circle cx="17" cy="9" r="2.5"/><path d="M2 20c0-3.3 2.7-6 6-6s6 2.7 6 6M14.5 14.6A5 5 0 0 1 22 19"/></svg></span>
+              <h3>Compra entre particulares</h3>
+            </div>
+            <p>Segurança e suporte na transação entre pessoas físicas.</p>
+            <a class="linha-link" href="#simulador" data-linha="Compra entre particulares" data-tipo="Carro" data-origem="Particular" data-perfil="Pessoa Física">Simular esta linha <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M12 5v14M6 13l6 6 6-6"/></svg></a>
+          </li>
+          <li class="linha-card">
+            <div class="linha-card-topo">
+              <span class="linha-icone" aria-hidden="true"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M21 12a9 9 0 1 1-3-6.7"/><path d="M21 4v5h-5"/><path d="M8 15h8v-2l-1-2.5H9L8 13v2Z"/></svg></span>
+              <h3>Refinanciamento de carro</h3>
+            </div>
+            <p>O veículo continua com você durante o pagamento.</p>
+            <a class="linha-link" href="#simulador" data-linha="Refinanciamento de carro" data-tipo="Carro">Simular esta linha <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M12 5v14M6 13l6 6 6-6"/></svg></a>
+          </li>
+          <li class="linha-card">
+            <div class="linha-card-topo">
+              <span class="linha-icone" aria-hidden="true"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M21 12a9 9 0 1 1-3-6.7"/><path d="M21 4v5h-5"/><path d="M7 10h6v5H7zM13 12h2.5l1.5 1.5V15h-4"/></svg></span>
+              <h3>Refinanciamento de caminhão</h3>
+            </div>
+            <p>Prazo de até 60 meses, para caminhões com até 40 anos de fabricação.</p>
+            <a class="linha-link" href="#simulador" data-linha="Refinanciamento de caminhão" data-tipo="Caminhão" data-prazo="60">Simular esta linha <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M12 5v14M6 13l6 6 6-6"/></svg></a>
+          </li>
+        </ul>
+
+        <!-- ---------- SIMULADOR ---------- -->
+        <div class="sim" id="simulador" role="region" aria-labelledby="sim-titulo">
+          <form class="sim-form" id="sim-form" novalidate>
+            <div class="sim-cabecalho">
+              <h3 id="sim-titulo">Simule seu crédito</h3>
+              <p class="sim-linha" id="sim-linha" hidden>
+                Linha: <strong id="sim-linha-nome"></strong>
+                <button type="button" id="sim-linha-limpar" aria-label="Remover linha selecionada">
+                  <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" aria-hidden="true"><path d="M6 6l12 12M18 6 6 18"/></svg>
+                </button>
+              </p>
+            </div>
+
+            <div class="campos">
+              <fieldset class="campo campo-largo">
+                <legend>Tipo de veículo</legend>
+                <div class="seg">
+                  <input type="radio" name="tipo" id="tipo-carro" value="Carro" checked><label for="tipo-carro">Carro</label>
+                  <input type="radio" name="tipo" id="tipo-utilitario" value="Utilitário"><label for="tipo-utilitario">Utilitário</label>
+                  <input type="radio" name="tipo" id="tipo-moto" value="Moto"><label for="tipo-moto">Moto</label>
+                  <input type="radio" name="tipo" id="tipo-caminhao" value="Caminhão"><label for="tipo-caminhao">Caminhão</label>
+                </div>
+              </fieldset>
+
+              <div class="campo">
+                <label for="sim-ano">Ano do veículo</label>
+                <select class="select" id="sim-ano" name="ano"></select>
+              </div>
+
+              <fieldset class="campo">
+                <legend>Origem</legend>
+                <div class="seg">
+                  <input type="radio" name="origem" id="origem-loja" value="Loja" checked><label for="origem-loja">Loja</label>
+                  <input type="radio" name="origem" id="origem-particular" value="Particular"><label for="origem-particular">Particular</label>
+                </div>
+              </fieldset>
+
+              <div class="campo">
+                <label for="sim-valor">Valor do veículo</label>
+                <div class="input-moeda">
+                  <span aria-hidden="true">R$</span>
+                  <input class="input" id="sim-valor" name="valor" type="text" inputmode="numeric" autocomplete="off" value="60.000" aria-describedby="sim-valor-erro">
+                </div>
+                <p class="campo-erro" id="sim-valor-erro" hidden>Informe o valor do veículo.</p>
+              </div>
+
+              <fieldset class="campo">
+                <legend>Percentual a financiar</legend>
+                <div class="seg mono">
+                  <input type="radio" name="percentual" id="perc-50" value="50"><label for="perc-50">50%</label>
+                  <input type="radio" name="percentual" id="perc-60" value="60" checked><label for="perc-60">60%</label>
+                  <input type="radio" name="percentual" id="perc-70" value="70"><label for="perc-70">70%</label>
+                </div>
+              </fieldset>
+
+              <fieldset class="campo">
+                <legend>Prazo</legend>
+                <div class="seg mono">
+                  <input type="radio" name="prazo" id="prazo-12" value="12"><label for="prazo-12">12x</label>
+                  <input type="radio" name="prazo" id="prazo-24" value="24"><label for="prazo-24">24x</label>
+                  <input type="radio" name="prazo" id="prazo-36" value="36"><label for="prazo-36">36x</label>
+                  <input type="radio" name="prazo" id="prazo-48" value="48" checked><label for="prazo-48">48x</label>
+                  <input type="radio" name="prazo" id="prazo-60" value="60"><label for="prazo-60">60x</label>
+                </div>
+              </fieldset>
+
+              <fieldset class="campo">
+                <legend>Perfil</legend>
+                <div class="seg">
+                  <input type="radio" name="perfil" id="perfil-pf" value="Pessoa Física" checked><label for="perfil-pf">Pessoa Física</label>
+                  <input type="radio" name="perfil" id="perfil-pj" value="Pessoa Jurídica"><label for="perfil-pj">Pessoa Jurídica</label>
+                </div>
+              </fieldset>
+            </div>
+          </form>
+
+          <div class="sim-resultado no-violeta">
+            <div aria-live="polite" aria-atomic="true">
+              <div class="res-principal">
+                <p class="res-rotulo">Crédito estimado</p>
+                <p class="res-valor" id="res-credito">R$&nbsp;36.000,00</p>
+              </div>
+            </div>
+            <div class="res-linhas">
+              <p class="res-linha"><span class="res-rotulo">Entrada necessária</span><span class="mono" id="res-entrada">R$&nbsp;24.000,00</span></p>
+              <p class="res-linha"><span class="res-rotulo">Condição</span><span class="mono" id="res-condicao">60% em 48x</span></p>
+            </div>
+            <p class="res-aviso">
+              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" aria-hidden="true"><circle cx="12" cy="12" r="9"/><path d="M12 8v5M12 16h.01"/></svg>
+              A aprovação e as condições dependem da análise de crédito do Banco Daycoval.
+            </p>
+            <div class="res-acoes">
+              <a class="btn btn-claro" id="sim-whatsapp" href="https://wa.me/5545999204449" rel="noopener">
+                <svg viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M12 2a10 10 0 0 0-8.6 15.1L2 22l5-1.3A10 10 0 1 0 12 2Zm0 18.2a8.2 8.2 0 0 1-4.2-1.2l-.3-.2-3 .8.8-2.9-.2-.3A8.2 8.2 0 1 1 12 20.2Zm4.5-6.1c-.2-.1-1.5-.7-1.7-.8-.2-.1-.4-.1-.6.1l-.8 1c-.1.2-.3.2-.5.1a6.7 6.7 0 0 1-3.3-2.9c-.3-.4.2-.4.7-1.3.1-.2 0-.3 0-.4l-.8-1.8c-.2-.5-.4-.4-.6-.4h-.5a1 1 0 0 0-.7.3 3 3 0 0 0-.9 2.2 5.2 5.2 0 0 0 1.1 2.7 11.8 11.8 0 0 0 4.5 4c1.7.7 2.3.8 3.2.6a2.7 2.7 0 0 0 1.8-1.2 2.2 2.2 0 0 0 .2-1.3c-.1-.1-.3-.2-.6-.3Z"/></svg>
+                Enviar resumo no WhatsApp
+              </a>
+              <button class="btn btn-contorno" type="button" id="sim-copiar">
+                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><rect x="9" y="9" width="11" height="11" rx="2"/><path d="M5 15V5a2 2 0 0 1 2-2h8"/></svg>
+                <span id="sim-copiar-texto">Copiar resumo</span>
+              </button>
+              <p class="sr-only" id="sim-status" role="status"></p>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- ===================== COMO FUNCIONA + ALERTA ANTIFRAUDE (Etapa 3) ===================== -->
+    <!-- CONFIRMAR -->
+    <section class="como secao" id="como-funciona" aria-labelledby="como-titulo">
+      <div class="wrap">
+        <div class="secao-topo">
+          <h2 id="como-titulo">Como funciona</h2>
+          <p>Cinco etapas, da simulação ao crédito liberado.</p>
+        </div>
+
+        <!-- CONFIRMAR: textos de apoio de cada etapa -->
+        <ol class="etapas" role="list">
+          <li class="etapa">
+            <span class="etapa-km">KM 01</span>
+            <h3>Simulação</h3>
+            <p>Veja o crédito estimado no simulador.</p>
+          </li>
+          <li class="etapa">
+            <span class="etapa-km">KM 02</span>
+            <h3>Conversa com a equipe</h3>
+            <p>Tire dúvidas e escolha a linha certa.</p>
+          </li>
+          <li class="etapa">
+            <span class="etapa-km">KM 03</span>
+            <h3>Envio de documentos</h3>
+            <p>Mande os documentos pessoais e do veículo.</p>
+          </li>
+          <li class="etapa">
+            <span class="etapa-km">KM 04</span>
+            <h3>Análise pelo banco</h3>
+            <p>O Banco Daycoval avalia a proposta.</p>
+          </li>
+          <li class="etapa">
+            <span class="etapa-km">KM 05</span>
+            <h3>Liberação</h3>
+            <p>Com a aprovação, o crédito é liberado.</p>
+          </li>
+        </ol>
+
+        <div class="alerta" role="note" aria-labelledby="alerta-titulo">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M12 3 4 6v6c0 4.5 3.4 8 8 9 4.6-1 8-4.5 8-9V6l-8-3Z"/><path d="M12 8v5M12 16h.01"/></svg>
+          <div>
+            <strong id="alerta-titulo">Aviso antifraude</strong>
+            <p>Nenhuma liberação de crédito realizada pela Solopromotora exige depósito antecipado. Desconfie de pedidos de pagamento antes da liberação do recurso e confirme sempre pelos nossos canais oficiais.</p>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- ===================== PARA LOJISTAS (Etapa 4) ===================== -->
+    <section class="lojistas secao" id="lojistas" aria-labelledby="lojistas-titulo">
+      <div class="wrap lojistas-grid">
+        <div class="lojistas-texto">
+          <h2 id="lojistas-titulo">Para lojistas</h2>
+          <p>Sua loja vende, a Solo financia. Ofereça crédito aos seus clientes na hora da venda.</p>
+          <ul class="lojistas-pontos" role="list">
+            <li>Financiamento e refinanciamento de veículos</li>
+            <li>Análise de crédito do Banco Daycoval</li>
+            <li>Atendimento no Paraná e no Rio Grande do Sul</li>
+          </ul>
+        </div>
+
+        <div class="form-card">
+          <form id="form-lojista" novalidate>
+            <div class="form-campos">
+              <div class="campo">
+                <label for="loja-nome">Nome da loja</label>
+                <input class="input input-texto" id="loja-nome" name="loja" type="text" autocomplete="organization" required aria-describedby="loja-nome-erro">
+                <p class="campo-erro" id="loja-nome-erro" hidden>Informe o nome da loja.</p>
+              </div>
+              <div class="campo">
+                <label for="loja-cidade">Cidade</label>
+                <input class="input input-texto" id="loja-cidade" name="cidade" type="text" autocomplete="address-level2" required aria-describedby="loja-cidade-erro">
+                <p class="campo-erro" id="loja-cidade-erro" hidden>Informe a cidade.</p>
+              </div>
+              <div class="campo">
+                <label for="loja-contato">Seu nome</label>
+                <input class="input input-texto" id="loja-contato" name="contato" type="text" autocomplete="name" required aria-describedby="loja-contato-erro">
+                <p class="campo-erro" id="loja-contato-erro" hidden>Informe seu nome.</p>
+              </div>
+              <div class="campo">
+                <label for="loja-whats">WhatsApp</label>
+                <input class="input" id="loja-whats" name="whatsapp" type="tel" inputmode="tel" autocomplete="tel-national" placeholder="(45) 99999-9999" required aria-describedby="loja-whats-erro">
+                <p class="campo-erro" id="loja-whats-erro" hidden>Informe um WhatsApp com DDD.</p>
+              </div>
+            </div>
+            <div class="form-acoes">
+              <button class="btn btn-primario" type="submit">Montar mensagem</button>
+            </div>
+          </form>
+
+          <div class="form-resultado" id="lojista-resultado" hidden>
+            <p>Mensagem pronta. Toque para enviar à nossa equipe.</p>
+            <a class="btn btn-primario" id="lojista-whatsapp" href="https://wa.me/5545999204449" rel="noopener">
+              <svg viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M12 2a10 10 0 0 0-8.6 15.1L2 22l5-1.3A10 10 0 1 0 12 2Zm0 18.2a8.2 8.2 0 0 1-4.2-1.2l-.3-.2-3 .8.8-2.9-.2-.3A8.2 8.2 0 1 1 12 20.2Zm4.5-6.1c-.2-.1-1.5-.7-1.7-.8-.2-.1-.4-.1-.6.1l-.8 1c-.1.2-.3.2-.5.1a6.7 6.7 0 0 1-3.3-2.9c-.3-.4.2-.4.7-1.3.1-.2 0-.3 0-.4l-.8-1.8c-.2-.5-.4-.4-.6-.4h-.5a1 1 0 0 0-.7.3 3 3 0 0 0-.9 2.2 5.2 5.2 0 0 0 1.1 2.7 11.8 11.8 0 0 0 4.5 4c1.7.7 2.3.8 3.2.6a2.7 2.7 0 0 0 1.8-1.2 2.2 2.2 0 0 0 .2-1.3c-.1-.1-.3-.2-.6-.3Z"/></svg>
+              Abrir no WhatsApp
+            </a>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- ===================== SOBRE (Etapa 5) ===================== -->
+    <section class="sobre secao" id="sobre" aria-labelledby="sobre-titulo">
+      <div class="wrap sobre-grid">
+        <div class="sobre-texto">
+          <h2 id="sobre-titulo">Sobre a Solopromotora</h2>
+          <p>A Solo nasceu em 2013, em Cascavel-PR, fundada por <strong>Eduardo Lorenzi</strong>, que soma mais de 20 anos de experiência em crédito.</p>
+          <p>Somos correspondente autorizado do <strong>Banco Daycoval</strong> (Res. CMN nº 4.935/2021). A gente atende, organiza a proposta e acompanha você até a liberação.</p>
+          <ul class="valores" role="list" aria-label="Nossos valores">
+            <li class="chip">Agilidade</li>
+            <li class="chip">Proximidade</li>
+            <li class="chip">Transparência</li>
+            <li class="chip">Ética</li>
+          </ul>
+        </div>
+
+        <div>
+          <p class="timeline-titulo">Nossa trajetória</p>
+          <ol class="timeline" role="list">
+            <li class="marco"><span class="marco-ano">2013</span><p>Fundação em Cascavel-PR</p></li>
+            <li class="marco"><span class="marco-ano">2022</span><p>Filial em Passo Fundo-RS</p></li>
+            <li class="marco"><span class="marco-ano">Fev/2025</span><p>Nova sede em Cascavel-PR</p></li>
+          </ol>
+        </div>
+      </div>
+    </section>
+
+    <!-- ===================== DEPOIMENTOS (Etapa 3, reposicionado na Etapa 5) ===================== -->
+    <!-- CONFIRMAR autorização -->
+    <section class="depoimentos secao" id="depoimentos" aria-labelledby="depo-titulo">
+      <div class="wrap">
+        <div class="secao-topo">
+          <h2 id="depo-titulo">Quem já fechou com a Solo</h2>
+        </div>
+
+        <div class="depo-grid">
+          <!-- CONFIRMAR autorização: Alex, ALX Multimarcas -->
+          <figure class="depo">
+            <blockquote><p>Uma empresa séria, uma empresa idônea.</p></blockquote>
+            <figcaption>
+              <span class="depo-inicial" aria-hidden="true">A</span>
+              <span><span class="depo-nome">Alex, ALX Multimarcas</span><span class="depo-local">Cascavel-PR</span></span>
+            </figcaption>
+          </figure>
+
+          <!-- CONFIRMAR autorização e texto exato: Enilson Goedert -->
+          <figure class="depo">
+            <blockquote><p>O dinheiro caiu na conta em menos de 24 horas.</p></blockquote>
+            <figcaption>
+              <span class="depo-inicial" aria-hidden="true">E</span>
+              <span><span class="depo-nome">Enilson Goedert</span><span class="depo-local">Pitanga-PR</span></span>
+            </figcaption>
+          </figure>
+
+          <!-- CONFIRMAR autorização e texto exato: Guido Celestino dos Santos -->
+          <figure class="depo">
+            <blockquote><p>Já estou no meu terceiro contrato com a Solo.</p></blockquote>
+            <figcaption>
+              <span class="depo-inicial" aria-hidden="true">G</span>
+              <span><span class="depo-nome">Guido Celestino dos Santos</span><span class="depo-local">Cascavel-PR</span></span>
+            </figcaption>
+          </figure>
+        </div>
+      </div>
+    </section>
+
+    <!-- ===================== ONDE FICAMOS (Etapa 4; título ajustado na Etapa 5) =====================
+         Reúne horário com status dinâmico, mapa, geolocalização e endereços. Única seção de unidades da página. -->
+
+    <section class="unidades secao" id="unidades" aria-labelledby="unidades-titulo">
+      <div class="wrap">
+        <div class="secao-topo">
+          <div>
+            <h2 id="unidades-titulo">Onde Ficamos</h2>
+            <p>Quatro unidades, um atendimento só: de segunda a sexta, das 8h às 18h.</p>
+          </div>
+          <p class="status-badge" id="status-horario" role="status">Seg. a sex., 8h às 18h</p>
+        </div>
+
+        <div class="unidades-grid">
+          <!-- Mapa esquemático (PR, SC de referência, RS). Projeção simples: x = (lon + 58) × 40, y = (−lat − 22) × 40 -->
+          <div class="mapa-card no-violeta">
+            <svg class="mapa-svg" viewBox="0 0 416 484" role="group" aria-label="Mapa das unidades no Paraná e no Rio Grande do Sul">
+              <polygon class="mapa-estado" points="136,140 148,84 204,24 240,20 300,36 336,44 348,104 388,128 396,156 376,160 320,168 272,184 216,176 172,168 156,144"/>
+              <polygon class="mapa-estado-sc" points="172,168 216,176 272,184 320,168 376,160 380,200 376,248 332,292 300,264 260,236 208,216 168,204"/>
+              <polygon class="mapa-estado" points="168,204 208,216 260,236 300,264 332,292 312,336 280,376 236,408 184,468 180,420 136,396 96,356 48,328 16,328 80,276 120,240 160,212"/>
+              <text class="mapa-sigla" x="316" y="136">PR</text>
+              <text class="mapa-sigla" x="320" y="214">SC</text>
+              <text class="mapa-sigla" x="130" y="320">RS</text>
+
+              <path class="mapa-rota" d="M182 118 Q 196 92 225 82"/>
+              <path class="mapa-rota" d="M182 118 Q 176 196 224 250"/>
+              <path class="mapa-rota" d="M224 250 Q 236 296 271 321"/>
+
+              <g class="mapa-ponto sede" data-unidade="cascavel">
+                <a href="#unidade-cascavel" aria-label="Cascavel-PR, sede">
+                  <circle class="alvo" cx="182" cy="118" r="26" fill="transparent"/>
+                  <circle class="anel" cx="182" cy="118" r="16"/>
+                  <circle class="nucleo" cx="182" cy="118" r="8"/>
+                  <text x="166" y="116" text-anchor="end">Cascavel</text>
+                  <text class="rotulo-sede" x="166" y="132" text-anchor="end">SEDE</text>
+                </a>
+              </g>
+              <g class="mapa-ponto" data-unidade="campo-mourao">
+                <a href="#unidade-campo-mourao" aria-label="Campo Mourão-PR">
+                  <circle class="alvo" cx="225" cy="82" r="26" fill="transparent"/>
+                  <circle class="anel" cx="225" cy="82" r="15"/>
+                  <circle class="nucleo" cx="225" cy="82" r="7"/>
+                  <text x="240" y="87">Campo Mourão</text>
+                </a>
+              </g>
+              <g class="mapa-ponto" data-unidade="passo-fundo">
+                <a href="#unidade-passo-fundo" aria-label="Passo Fundo-RS">
+                  <circle class="alvo" cx="224" cy="250" r="26" fill="transparent"/>
+                  <circle class="anel" cx="224" cy="250" r="15"/>
+                  <circle class="nucleo" cx="224" cy="250" r="7"/>
+                  <text x="239" y="255">Passo Fundo</text>
+                </a>
+              </g>
+              <g class="mapa-ponto" data-unidade="porto-alegre">
+                <a href="#unidade-porto-alegre" aria-label="Porto Alegre-RS">
+                  <circle class="alvo" cx="271" cy="321" r="26" fill="transparent"/>
+                  <circle class="anel" cx="271" cy="321" r="15"/>
+                  <circle class="nucleo" cx="271" cy="321" r="7"/>
+                  <text x="286" y="326">Porto Alegre</text>
+                </a>
+              </g>
+            </svg>
+
+            <div class="geo">
+              <button class="btn btn-primario" type="button" id="geo-btn">
+                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><circle cx="12" cy="12" r="3"/><path d="M12 2v3M12 19v3M2 12h3M19 12h3"/><circle cx="12" cy="12" r="7"/></svg>
+                Qual fica mais perto de mim?
+              </button>
+              <p class="geo-status" id="geo-status" aria-live="polite"></p>
+            </div>
+          </div>
+
+          <ul class="enderecos" role="list">
+            <li class="endereco" id="unidade-cascavel" data-unidade="cascavel">
+              <div>
+                <h3>Cascavel-PR <span class="tag">Sede</span></h3>
+                <address>Av. Rocha Pombo, 1336</address>
+                <span class="endereco-dist" hidden></span>
+              </div>
+              <a class="mapa-link" href="https://www.google.com/maps/search/?api=1&amp;query=Av.%20Rocha%20Pombo%2C%201336%2C%20Cascavel%20-%20PR" target="_blank" rel="noopener" aria-label="Abrir Cascavel-PR no Google Maps (nova aba)">
+                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M14 4h6v6M20 4l-9 9M18 14v5a1 1 0 0 1-1 1H5a1 1 0 0 1-1-1V7a1 1 0 0 1 1-1h5"/></svg>
+              </a>
+            </li>
+            <li class="endereco" id="unidade-campo-mourao" data-unidade="campo-mourao">
+              <div>
+                <h3>Campo Mourão-PR</h3>
+                <address>Av. Ney Braga, 983</address>
+                <span class="endereco-dist" hidden></span>
+              </div>
+              <a class="mapa-link" href="https://www.google.com/maps/search/?api=1&amp;query=Av.%20Ney%20Braga%2C%20983%2C%20Campo%20Mour%C3%A3o%20-%20PR" target="_blank" rel="noopener" aria-label="Abrir Campo Mourão-PR no Google Maps (nova aba)">
+                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M14 4h6v6M20 4l-9 9M18 14v5a1 1 0 0 1-1 1H5a1 1 0 0 1-1-1V7a1 1 0 0 1 1-1h5"/></svg>
+              </a>
+            </li>
+            <li class="endereco" id="unidade-porto-alegre" data-unidade="porto-alegre">
+              <div>
+                <h3>Porto Alegre-RS</h3>
+                <address>Av. Sertório, 7170, sala 204</address>
+                <span class="endereco-dist" hidden></span>
+              </div>
+              <a class="mapa-link" href="https://www.google.com/maps/search/?api=1&amp;query=Av.%20Sert%C3%B3rio%2C%207170%2C%20Porto%20Alegre%20-%20RS" target="_blank" rel="noopener" aria-label="Abrir Porto Alegre-RS no Google Maps (nova aba)">
+                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M14 4h6v6M20 4l-9 9M18 14v5a1 1 0 0 1-1 1H5a1 1 0 0 1-1-1V7a1 1 0 0 1 1-1h5"/></svg>
+              </a>
+            </li>
+            <li class="endereco" id="unidade-passo-fundo" data-unidade="passo-fundo">
+              <div>
+                <h3>Passo Fundo-RS</h3>
+                <address>Av. Presidente Vargas, 413, sala 20</address>
+                <span class="endereco-dist" hidden></span>
+              </div>
+              <a class="mapa-link" href="https://www.google.com/maps/search/?api=1&amp;query=Av.%20Presidente%20Vargas%2C%20413%2C%20Passo%20Fundo%20-%20RS" target="_blank" rel="noopener" aria-label="Abrir Passo Fundo-RS no Google Maps (nova aba)">
+                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M14 4h6v6M20 4l-9 9M18 14v5a1 1 0 0 1-1 1H5a1 1 0 0 1-1-1V7a1 1 0 0 1 1-1h5"/></svg>
+              </a>
+            </li>
+          </ul>
+        </div>
+      </div>
+    </section>
+
+    <!-- ===================== DÚVIDAS FREQUENTES (Etapa 5) ===================== -->
+    <section class="duvidas secao" id="duvidas" aria-labelledby="duvidas-titulo">
+      <div class="wrap faq-grid">
+        <div class="secao-topo" style="margin-bottom:0">
+          <div>
+            <h2 id="duvidas-titulo">Dúvidas frequentes</h2>
+            <p style="margin-top:4px">Ficou outra dúvida? Chame no WhatsApp.</p>
+          </div>
+        </div>
+        <div class="faq-lista">
+          <details class="faq-item">
+            <summary>Quem aprova o crédito?<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="m6 9 6 6 6-6"/></svg></summary>
+            <p class="faq-resposta">O Banco Daycoval. A Solopromotora é correspondente autorizado.</p>
+          </details>
+          <details class="faq-item">
+            <summary>Posso refinanciar meu carro e continuar usando?<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="m6 9 6 6 6-6"/></svg></summary>
+            <p class="faq-resposta">Sim. O veículo continua com você durante todo o contrato.</p>
+          </details>
+          <details class="faq-item">
+            <summary>Quais são os prazos disponíveis?<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="m6 9 6 6 6-6"/></svg></summary>
+            <p class="faq-resposta">No simulador, opções de 12 a 60 parcelas.</p>
+          </details>
+          <details class="faq-item">
+            <summary>Como funciona o refinanciamento de caminhão?<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="m6 9 6 6 6-6"/></svg></summary>
+            <p class="faq-resposta">Prazo de até 60 meses, para caminhões com até 40 anos de fabricação.</p>
+          </details>
+          <details class="faq-item">
+            <summary>Dá para financiar o primeiro caminhão?<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="m6 9 6 6 6-6"/></svg></summary>
+            <p class="faq-resposta">Sim, até R$ 100 mil ou 70% da tabela.</p>
+          </details>
+        </div>
+      </div>
+    </section>
+
+    <!-- ===================== CONTATOS (Etapa 5) ===================== -->
+    <section class="contatos secao" id="contatos" aria-labelledby="contatos-titulo">
+      <div class="wrap">
+        <div class="secao-topo">
+          <h2 id="contatos-titulo">Contatos</h2>
+          <p>Escolha o assunto e fale direto com a equipe certa.</p>
+        </div>
+        <div class="contatos-grid">
+          <a class="contato" href="https://wa.me/5545999204449" rel="noopener">
+            <span class="contato-icone" aria-hidden="true"><svg viewBox="0 0 24 24" fill="currentColor"><path d="M12 2a10 10 0 0 0-8.6 15.1L2 22l5-1.3A10 10 0 1 0 12 2Zm0 18.2a8.2 8.2 0 0 1-4.2-1.2l-.3-.2-3 .8.8-2.9-.2-.3A8.2 8.2 0 1 1 12 20.2Zm4.5-6.1c-.2-.1-1.5-.7-1.700-.8-.2-.1-.4-.1-.6.1l-.8 1c-.1.2-.3.2-.5.1a6.7 6.7 0 0 1-3.3-2.9c-.3-.4.2-.4.7-1.3.1-.2 0-.3 0-.4l-.8-1.8c-.2-.5-.4-.4-.6-.4h-.5a1 1 0 0 0-.7.3 3 3 0 0 0-.9 2.200 5.2 5.2 0 0 0 1.1 2.7 11.8 11.8 0 0 0 4.5 4c1.7.7 2.300.8 3.200.6a2.7 2.7 0 0 0 1.8-1.2 2.2 2.2 0 0 0 .2-1.3c-.1-.1-.3-.2-.6-.3Z"/></svg></span>
+            <span><span class="contato-assunto">Simulação</span><span class="contato-valor">(45) 99920-4449</span></span>
+            <svg class="contato-seta" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M5 12h14M13 6l6 6-6 6"/></svg>
+          </a>
+          <a class="contato" href="https://wa.me/5545998430555" rel="noopener">
+            <span class="contato-icone" aria-hidden="true"><svg viewBox="0 0 24 24" fill="currentColor"><path d="M12 2a10 10 0 0 0-8.6 15.1L2 22l5-1.3A10 10 0 1 0 12 2Zm0 18.2a8.2 8.2 0 0 1-4.2-1.2l-.3-.2-3 .8.8-2.9-.2-.3A8.2 8.2 0 1 1 12 20.2Zm4.5-6.1c-.2-.1-1.5-.7-1.7-.8-.2-.1-.4-.1-.6.1l-.8 1c-.1.2-.3.2-.5.1a6.7 6.7 0 0 1-3.3-2.9c-.3-.4.2-.4.7-1.3.1-.2 0-.3 0-.4l-.8-1.8c-.2-.5-.4-.4-.6-.4h-.5a1 1 0 0 0-.7.3 3 3 0 0 0-.9 2.2 5.2 5.2 0 0 0 1.1 2.7 11.8 11.8 0 0 0 4.5 4c1.7.7 2.3.8 3.2.6a2.7 2.7 0 0 0 1.8-1.2 2.2 2.2 0 0 0 .2-1.3c-.1-.1-.3-.2-.6-.3Z"/></svg></span>
+            <span><span class="contato-assunto">Sede</span><span class="contato-valor">(45) 99843-0555</span></span>
+            <svg class="contato-seta" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M5 12h14M13 6l6 6-6 6"/></svg>
+          </a>
+          <a class="contato" href="https://wa.me/5551982180014" rel="noopener">
+            <span class="contato-icone" aria-hidden="true"><svg viewBox="0 0 24 24" fill="currentColor"><path d="M12 2a10 10 0 0 0-8.6 15.1L2 22l5-1.3A10 10 0 1 0 12 2Zm0 18.2a8.2 8.2 0 0 1-4.2-1.2l-.3-.2-3 .8.8-2.9-.2-.3A8.2 8.2 0 1 1 12 20.2Zm4.5-6.1c-.2-.1-1.5-.7-1.7-.8-.2-.1-.4-.1-.6.1l-.8 1c-.1.2-.3.2-.5.1a6.7 6.7 0 0 1-3.3-2.9c-.3-.4.2-.4.7-1.3.1-.2 0-.3 0-.4l-.8-1.8c-.2-.5-.4-.4-.6-.4h-.5a1 1 0 0 0-.7.3 3 3 0 0 0-.9 2.2 5.2 5.2 0 0 0 1.1 2.7 11.8 11.8 0 0 0 4.5 4c1.7.7 2.3.8 3.2.6a2.7 2.7 0 0 0 1.8-1.2 2.2 2.2 0 0 0 .2-1.3c-.1-.1-.3-.2-.6-.3Z"/></svg></span>
+            <span><span class="contato-assunto">Atendimento ao cliente</span><span class="contato-valor">(51) 98218-0014</span></span>
+            <svg class="contato-seta" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M5 12h14M13 6l6 6-6 6"/></svg>
+          </a>
+          <a class="contato" href="https://www.instagram.com/solopromotora/" target="_blank" rel="noopener" aria-label="Instagram @solopromotora (nova aba)">
+            <span class="contato-icone" aria-hidden="true"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="3" y="3" width="18" height="18" rx="5"/><circle cx="12" cy="12" r="4"/><circle cx="17.5" cy="6.5" r="1" fill="currentColor"/></svg></span>
+            <span><span class="contato-assunto">Instagram</span><span class="contato-valor">@solopromotora</span></span>
+            <svg class="contato-seta" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M5 12h14M13 6l6 6-6 6"/></svg>
+          </a>
+        </div>
+      </div>
+    </section>
+
+  </main>
+
+  <!-- ===================== RODAPÉ (Etapa 5) ===================== -->
+  <footer class="rodape">
+    <div class="wrap">
+      <div class="rodape-marca">
+        <img class="logo-redondo" src="logo.png" alt="" width="44" height="44">
+        <img class="logo-nome" src="logo-rodape.png" alt="Solopromotora, financiamentos de veículos" width="245" height="40" onerror="this.replaceWith(Object.assign(document.createElement('span'),{className:'rodape-marca-texto',textContent:'Solopromotora'}))">
+      </div>
+
+      <div class="rodape-legal">
+        <!-- CONFIRMAR razão social completa (e CNPJ, se a empresa quiser exibir) -->
+        <p><strong>Solopromotora Financiamentos</strong> · Sede em Cascavel-PR</p>
+        <p>A Solopromotora atua como correspondente autorizado do Banco Daycoval, nos termos da Res. CMN nº 4.935/2021. Quem analisa e concede o crédito é o Banco Daycoval. Taxas, prazos e valores estão sujeitos à aprovação de crédito.</p>
+      </div>
+
+      <div class="rodape-banco">
+        <p><strong>Canais do Banco Daycoval</strong></p>
+        <a href="tel:08007750500">SAC <span>0800 775 0500</span></a>
+        <a href="tel:08007770900">Ouvidoria <span>0800 777 0900</span></a>
+      </div>
+
+      <div class="rodape-base">
+        <p>© 2026 Solopromotora Financiamentos. Todos os direitos reservados.</p>
+        <p>Seg. a sex., 8h às 18h</p>
+      </div>
+    </div>
+  </footer>
+
+  <script>
+    (function () {
+      // Fallback do logo: mostra "Solo." em texto se logo.png falhar
+      var img = document.getElementById('logo-img');
+      var txt = document.getElementById('logo-fallback');
+      function falhou() { img.hidden = true; txt.hidden = false; }
+      if (img.complete && img.naturalWidth === 0) falhou();
+      img.addEventListener('error', falhou);
+
+      // Menu mobile
+      var btn = document.querySelector('.menu-btn');
+      var nav = document.getElementById('nav-principal');
+      function setMenu(aberto) {
+        btn.setAttribute('aria-expanded', String(aberto));
+        btn.setAttribute('aria-label', aberto ? 'Fechar menu' : 'Abrir menu');
+        nav.classList.toggle('aberto', aberto);
+        document.body.classList.toggle('menu-aberto', aberto);
+      }
+      btn.addEventListener('click', function () {
+        setMenu(btn.getAttribute('aria-expanded') !== 'true');
+      });
+      nav.addEventListener('click', function (e) {
+        if (e.target.closest('a')) setMenu(false);
+      });
+      document.addEventListener('keydown', function (e) {
+        if (e.key === 'Escape' && nav.classList.contains('aberto')) { setMenu(false); btn.focus(); }
+      });
+      window.matchMedia('(min-width: 900px)').addEventListener('change', function (m) {
+        if (m.matches) setMenu(false);
+      });
+
+    })();
+
+    /* =========================================================
+       SIMULADOR (Etapa 2)
+       ========================================================= */
+    (function () {
+      var WHATSAPP = 'https://wa.me/5545999204449';
+      var moeda = new Intl.NumberFormat('pt-BR', { style: 'currency', currency: 'BRL' });
+      var inteiro = new Intl.NumberFormat('pt-BR', { maximumFractionDigits: 0 });
+      var reduzMovimento = window.matchMedia('(prefers-reduced-motion: reduce)');
+
+      var form = document.getElementById('sim-form');
+      var simulador = document.getElementById('simulador');
+      var anoSelect = document.getElementById('sim-ano');
+      var valorInput = document.getElementById('sim-valor');
+      var valorErro = document.getElementById('sim-valor-erro');
+      var outCredito = document.getElementById('res-credito');
+      var outEntrada = document.getElementById('res-entrada');
+      var outCondicao = document.getElementById('res-condicao');
+      var btnWhats = document.getElementById('sim-whatsapp');
+      var btnCopiar = document.getElementById('sim-copiar');
+      var txtCopiar = document.getElementById('sim-copiar-texto');
+      var status = document.getElementById('sim-status');
+      var chipLinha = document.getElementById('sim-linha');
+      var chipNome = document.getElementById('sim-linha-nome');
+      var linkLinhas = document.querySelectorAll('.linha-link');
+
+      var linhaAtual = null; // { nome, tipo, card }
+      var resumoAtual = '';
+      var timerCopiar = null;
+
+      // Anos: do próximo ano até 40 anos atrás
+      var anoAtual = new Date().getFullYear();
+      for (var a = anoAtual + 1; a >= anoAtual - 40; a--) {
+        var opt = document.createElement('option');
+        opt.value = String(a); opt.textContent = String(a);
+        if (a === anoAtual) opt.selected = true;
+        anoSelect.appendChild(opt);
+      }
+
+      function marcar(nome, valor) {
+        if (valor == null) return;
+        var el = form.querySelector('input[name="' + nome + '"][value="' + valor + '"]');
+        if (el) el.checked = true;
+      }
+      function lerValor() {
+        return parseInt(valorInput.value.replace(/\D/g, ''), 10) || 0;
+      }
+      function dados() {
+        var fd = new FormData(form);
+        return {
+          tipo: fd.get('tipo'), ano: fd.get('ano'), origem: fd.get('origem'),
+          valor: lerValor(), percentual: Number(fd.get('percentual')),
+          prazo: Number(fd.get('prazo')), perfil: fd.get('perfil')
+        };
+      }
+
+      function montarResumo(d, credito, entrada) {
+        var linhas = ['*Simulação Solo Financiamentos*'];
+        if (linhaAtual) linhas.push('Linha: ' + linhaAtual.nome);
+        linhas.push(
+          'Veículo: ' + d.tipo + ' ' + d.ano,
+          'Origem: ' + d.origem,
+          'Valor do veículo: ' + moeda.format(d.valor),
+          'Percentual a financiar: ' + d.percentual + '%',
+          'Crédito estimado: ' + moeda.format(credito),
+          'Entrada necessária: ' + moeda.format(entrada),
+          'Prazo: ' + d.prazo + 'x',
+          'Perfil: ' + d.perfil,
+          '',
+          'Quero seguir com a análise de crédito.'
+        );
+        return linhas.join('\n');
+      }
+
+      // Microinteração: o valor "assenta" quando muda
+      function piscar(el) {
+        if (reduzMovimento.matches) return;
+        el.classList.remove('atualizado');
+        void el.offsetWidth; // reinicia a animação
+        el.classList.add('atualizado');
+      }
+
+      function setAcoes(ativo) {
+        [btnWhats, btnCopiar].forEach(function (b) {
+          if (ativo) b.removeAttribute('aria-disabled'); else b.setAttribute('aria-disabled', 'true');
+        });
+        if (ativo) btnWhats.removeAttribute('tabindex'); else btnWhats.setAttribute('tabindex', '-1');
+        btnCopiar.disabled = !ativo;
+      }
+
+      function calcular() {
+        var d = dados();
+        var valido = d.valor > 0;
+        if (!valido) {
+          outCredito.textContent = 'R$ —';
+          outEntrada.textContent = 'R$ —';
+          outCondicao.textContent = d.percentual + '% em ' + d.prazo + 'x';
+          resumoAtual = '';
+          btnWhats.href = WHATSAPP;
+          setAcoes(false);
+          return;
+        }
+        var credito = Math.round(d.valor * d.percentual) / 100;
+        var entrada = d.valor - credito;
+        var novoCredito = moeda.format(credito);
+        if (outCredito.textContent !== novoCredito) piscar(outCredito);
+        if (outEntrada.textContent !== moeda.format(entrada)) piscar(outEntrada);
+        outCredito.textContent = novoCredito;
+        outEntrada.textContent = moeda.format(entrada);
+        outCondicao.textContent = d.percentual + '% em ' + d.prazo + 'x';
+        resumoAtual = montarResumo(d, credito, entrada);
+        btnWhats.href = WHATSAPP + '?text=' + encodeURIComponent(resumoAtual);
+        setAcoes(true);
+      }
+
+      // Máscara do valor: só dígitos, separador de milhar, até R$ 99.999.999
+      valorInput.addEventListener('input', function () {
+        var n = valorInput.value.replace(/\D/g, '').slice(0, 8);
+        valorInput.value = n ? inteiro.format(Number(n)) : '';
+        var invalido = !n || Number(n) === 0;
+        valorErro.hidden = !invalido;
+        valorInput.setAttribute('aria-invalid', String(invalido));
+        calcular();
+      });
+
+      // Linha selecionada
+      function definirLinha(linha) {
+        if (linhaAtual && linhaAtual.card) linhaAtual.card.classList.remove('ativa');
+        linhaAtual = linha;
+        if (linha) {
+          linha.card.classList.add('ativa');
+          chipNome.textContent = linha.nome;
+          chipLinha.hidden = false;
+        } else {
+          chipLinha.hidden = true;
+        }
+      }
+      document.getElementById('sim-linha-limpar').addEventListener('click', function () {
+        definirLinha(null); calcular(); valorInput.focus();
+      });
+
+      form.addEventListener('change', function (e) {
+        // Trocar o tipo manualmente desfaz a linha se ela não combinar mais
+        if (e.target.name === 'tipo' && linhaAtual && linhaAtual.tipo !== e.target.value) definirLinha(null);
+        calcular();
+      });
+      form.addEventListener('submit', function (e) { e.preventDefault(); });
+
+      // "Simular esta linha": pré-seleciona e rola até o simulador
+      linkLinhas.forEach(function (link) {
+        link.addEventListener('click', function (e) {
+          e.preventDefault();
+          var ds = link.dataset;
+          marcar('tipo', ds.tipo);
+          marcar('origem', ds.origem);
+          marcar('percentual', ds.percentual);
+          marcar('prazo', ds.prazo);
+          marcar('perfil', ds.perfil);
+          definirLinha({ nome: ds.linha, tipo: ds.tipo, card: link.closest('.linha-card') });
+          calcular();
+          simulador.scrollIntoView({ behavior: reduzMovimento.matches ? 'auto' : 'smooth', block: 'start' });
+          valorInput.focus({ preventScroll: true });
+        });
+      });
+
+      // Copiar resumo
+      function copiarFallback(texto) {
+        var ta = document.createElement('textarea');
+        ta.value = texto; ta.setAttribute('readonly', '');
+        ta.style.position = 'fixed'; ta.style.opacity = '0';
+        document.body.appendChild(ta); ta.select();
+        var ok = false;
+        try { ok = document.execCommand('copy'); } catch (err) { ok = false; }
+        document.body.removeChild(ta);
+        return ok;
+      }
+      function feedback(texto, ok) {
+        clearTimeout(timerCopiar);
+        txtCopiar.textContent = texto;
+        btnCopiar.classList.toggle('copiado', ok);
+        status.textContent = ok ? 'Resumo copiado.' : 'Não foi possível copiar. Selecione e copie manualmente.';
+        timerCopiar = setTimeout(function () {
+          txtCopiar.textContent = 'Copiar resumo';
+          btnCopiar.classList.remove('copiado');
+        }, 2200);
+      }
+      btnCopiar.addEventListener('click', function () {
+        if (!resumoAtual) return;
+        var texto = resumoAtual.replace(/\*/g, '');
+        if (navigator.clipboard && window.isSecureContext) {
+          navigator.clipboard.writeText(texto).then(
+            function () { feedback('Copiado!', true); },
+            function () { var ok = copiarFallback(texto); feedback(ok ? 'Copiado!' : 'Falha ao copiar', ok); }
+          );
+        } else {
+          var ok = copiarFallback(texto);
+          feedback(ok ? 'Copiado!' : 'Falha ao copiar', ok);
+        }
+      });
+
+      calcular();
+    })();
+
+    /* =========================================================
+       PARA LOJISTAS (Etapa 4)
+       ========================================================= */
+    (function () {
+      var form = document.getElementById('form-lojista');
+      var resultado = document.getElementById('lojista-resultado');
+      var link = document.getElementById('lojista-whatsapp');
+      var whats = document.getElementById('loja-whats');
+      var campos = [
+        { el: document.getElementById('loja-nome'), ok: function (v) { return v.trim().length >= 2; } },
+        { el: document.getElementById('loja-cidade'), ok: function (v) { return v.trim().length >= 2; } },
+        { el: document.getElementById('loja-contato'), ok: function (v) { return v.trim().length >= 2; } },
+        { el: whats, ok: function (v) { var n = v.replace(/\D/g, ''); return n.length === 10 || n.length === 11; } }
+      ];
+
+      // Máscara: (45) 99999-9999
+      whats.addEventListener('input', function () {
+        var n = whats.value.replace(/\D/g, '').slice(0, 11);
+        var f = n;
+        if (n.length > 2) f = '(' + n.slice(0, 2) + ') ' + n.slice(2);
+        if (n.length > 6) f = '(' + n.slice(0, 2) + ') ' + n.slice(2, n.length - 4) + '-' + n.slice(-4);
+        whats.value = f;
+      });
+
+      function validar(c) {
+        var valido = c.ok(c.el.value);
+        c.el.setAttribute('aria-invalid', String(!valido));
+        document.getElementById(c.el.id + '-erro').hidden = valido;
+        return valido;
+      }
+      campos.forEach(function (c) {
+        c.el.addEventListener('blur', function () { if (c.el.value) validar(c); });
+        c.el.addEventListener('input', function () {
+          if (c.el.getAttribute('aria-invalid') === 'true') validar(c);
+          resultado.hidden = true; // dados mudaram: a mensagem anterior deixa de valer
+        });
+      });
+
+      form.addEventListener('submit', function (e) {
+        e.preventDefault();
+        var primeiroErro = null;
+        campos.forEach(function (c) { if (!validar(c) && !primeiroErro) primeiroErro = c.el; });
+        if (primeiroErro) { primeiroErro.focus(); return; }
+
+        var fd = new FormData(form);
+        var msg = [
+          '*Quero ser parceiro da Solo*',
+          'Loja: ' + fd.get('loja').trim(),
+          'Cidade: ' + fd.get('cidade').trim(),
+          'Contato: ' + fd.get('contato').trim(),
+          'WhatsApp: ' + fd.get('whatsapp').trim()
+        ].join('\n');
+        link.href = 'https://wa.me/5545999204449?text=' + encodeURIComponent(msg);
+        resultado.hidden = false;
+        link.focus();
+      });
+    })();
+
+    /* =========================================================
+       UNIDADES: status de horário, mapa e geolocalização (Etapa 4)
+       ========================================================= */
+    (function () {
+      var UNIDADES = [
+        { id: 'cascavel',     nome: 'Cascavel-PR',     lat: -24.9555, lon: -53.4552 },
+        { id: 'campo-mourao', nome: 'Campo Mourão-PR', lat: -24.0463, lon: -52.3780 },
+        { id: 'passo-fundo',  nome: 'Passo Fundo-RS',  lat: -28.2620, lon: -52.4064 },
+        { id: 'porto-alegre', nome: 'Porto Alegre-RS', lat: -30.0346, lon: -51.2177 }
+      ];
+
+      // ---- Status do horário (relógio do dispositivo) ----
+      var badge = document.getElementById('status-horario');
+      function atualizarStatus() {
+        var agora = new Date();
+        var dia = agora.getDay();               // 0 dom … 6 sáb
+        var min = agora.getHours() * 60 + agora.getMinutes();
+        var util = dia >= 1 && dia <= 5;
+        var aberto = util && min >= 8 * 60 && min < 18 * 60;
+        var texto;
+        if (aberto) texto = 'Aberto agora, até as 18h';
+        else if (util && min < 8 * 60) texto = 'Fechado agora, abre hoje às 8h';
+        else if (dia >= 1 && dia <= 4) texto = 'Fechado agora, abre amanhã às 8h';
+        else texto = 'Fechado agora, abre segunda às 8h';
+        badge.textContent = texto;
+        badge.classList.toggle('aberto', aberto);
+      }
+      atualizarStatus();
+      setInterval(atualizarStatus, 60000);
+
+      // ---- Destaque cruzado mapa ↔ lista ----
+      function porUnidade(id) { return document.querySelectorAll('[data-unidade="' + id + '"]'); }
+      function marcar(id, classe, ligado) {
+        porUnidade(id).forEach(function (el) { el.classList.toggle(classe, ligado); });
+      }
+      document.querySelectorAll('[data-unidade]').forEach(function (el) {
+        var id = el.getAttribute('data-unidade');
+        ['mouseenter', 'focusin'].forEach(function (ev) { el.addEventListener(ev, function () { marcar(id, 'foco', true); }); });
+        ['mouseleave', 'focusout'].forEach(function (ev) { el.addEventListener(ev, function () { marcar(id, 'foco', false); }); });
+      });
+
+      // ---- Geolocalização ----
+      var btn = document.getElementById('geo-btn');
+      var status = document.getElementById('geo-status');
+      var km = new Intl.NumberFormat('pt-BR', { maximumFractionDigits: 0 });
+
+      function distanciaKm(lat1, lon1, lat2, lon2) {
+        var R = 6371, rad = Math.PI / 180;
+        var dLat = (lat2 - lat1) * rad, dLon = (lon2 - lon1) * rad;
+        var a = Math.sin(dLat / 2) * Math.sin(dLat / 2) +
+                Math.cos(lat1 * rad) * Math.cos(lat2 * rad) * Math.sin(dLon / 2) * Math.sin(dLon / 2);
+        return 2 * R * Math.atan2(Math.sqrt(a), Math.sqrt(1 - a));
+      }
+      function aviso(html, erro) {
+        status.innerHTML = html;
+        status.classList.toggle('erro', !!erro);
+      }
+      function limparPerto() {
+        document.querySelectorAll('.perto').forEach(function (el) { el.classList.remove('perto'); });
+        document.querySelectorAll('.tag-perto').forEach(function (el) { el.remove(); });
+      }
+
+      btn.addEventListener('click', function () {
+        if (!('geolocation' in navigator)) {
+          aviso('Seu navegador não informa a localização. Confira a lista de endereços.', true);
+          return;
+        }
+        btn.disabled = true;
+        aviso('Buscando sua localização…');
+        navigator.geolocation.getCurrentPosition(function (pos) {
+          btn.disabled = false;
+          var lat = pos.coords.latitude, lon = pos.coords.longitude;
+          var lista = UNIDADES.map(function (u) {
+            return { u: u, d: distanciaKm(lat, lon, u.lat, u.lon) };
+          }).sort(function (a, b) { return a.d - b.d; });
+
+          limparPerto();
+          lista.forEach(function (item) {
+            var li = document.getElementById('unidade-' + item.u.id);
+            var dist = li.querySelector('.endereco-dist');
+            dist.textContent = '≈ ' + km.format(item.d) + ' km de você';
+            dist.hidden = false;
+          });
+          var maisPerto = lista[0];
+          marcar(maisPerto.u.id, 'perto', true);
+          var tag = document.createElement('span');
+          tag.className = 'tag tag-perto';
+          tag.textContent = 'Mais perto';
+          document.querySelector('#unidade-' + maisPerto.u.id + ' h3').appendChild(tag);
+          aviso('Mais perto de você: <strong>' + maisPerto.u.nome + '</strong>, a cerca de ' + km.format(maisPerto.d) + ' km.');
+        }, function (err) {
+          btn.disabled = false;
+          if (err.code === 1) aviso('Sem permissão para ler sua localização. Confira a lista de endereços.', true);
+          else aviso('Não foi possível ler sua localização agora. Confira a lista de endereços.', true);
+        }, { enableHighAccuracy: false, timeout: 10000, maximumAge: 600000 });
+      });
+    })();
+
+    /* =========================================================
+       POLIMENTO FINAL: scroll reveal + contadores dos KPIs
+       Sem IntersectionObserver ou com movimento reduzido, nada é
+       escondido nem animado: o conteúdo aparece pronto.
+       ========================================================= */
+    (function () {
+      var reduz = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
+      if (reduz || !('IntersectionObserver' in window)) return;
+
+      // ---- Scroll reveal ----
+      var seletores = [
+        'main > section:not(.hero) .secao-topo',
+        // Grades com divisória de 1px (gap + fundo) revelam o bloco inteiro,
+        // senão o fundo da divisória aparece antes dos cards.
+        '.kpi-faixa', '.linhas-grid', '.sim', '.etapas', '.alerta',
+        '.lojistas-grid > *', '.sobre-grid > *', '.depo-grid',
+        '.unidades-grid > *', '.faq-grid > .faq-lista', '.contatos-grid'
+      ].join(',');
+      var alvos = Array.prototype.slice.call(document.querySelectorAll(seletores));
+      var limite = window.innerHeight * 0.92;
+
+      alvos.forEach(function (el) {
+        // Já na tela ao carregar: não esconde (evita "piscar")
+        if (el.getBoundingClientRect().top < limite) return;
+        // Atraso escalonado entre irmãos (máx. 4 passos)
+        var irmaos = Array.prototype.filter.call(el.parentElement.children, function (c) { return c.matches(seletores); });
+        var i = Math.min(irmaos.indexOf(el), 4);
+        el.style.setProperty('--atraso', (i * 70) + 'ms');
+        el.classList.add('reveal');
+      });
+
+      var obsReveal = new IntersectionObserver(function (entradas) {
+        entradas.forEach(function (e) {
+          if (!e.isIntersecting) return;
+          e.target.classList.add('visivel');
+          obsReveal.unobserve(e.target);
+        });
+      }, { rootMargin: '0px 0px -8% 0px', threshold: 0.08 });
+      document.querySelectorAll('.reveal').forEach(function (el) { obsReveal.observe(el); });
+
+      // Âncoras (menu, "Simular esta linha"): revela o destino na hora
+      document.addEventListener('click', function (ev) {
+        var a = ev.target.closest('a[href^="#"]');
+        if (!a || a.getAttribute('href').length < 2) return;
+        var destino = document.querySelector(a.getAttribute('href'));
+        if (!destino) return;
+        destino.querySelectorAll('.reveal').forEach(function (el) { el.classList.add('visivel'); });
+        if (destino.classList.contains('reveal')) destino.classList.add('visivel');
+      });
+
+      // ---- Contadores dos KPIs ----
+      var fmt = new Intl.NumberFormat('pt-BR');
+      var valores = document.querySelectorAll('.kpi-valor');
+      valores.forEach(function (el) {
+        var final = parseInt(el.textContent.replace(/\D/g, ''), 10);
+        if (!final) return;
+        el.dataset.final = String(final);
+        // Leitor de tela lê o valor final; o número animado fica oculto para ele
+        var sr = document.createElement('span');
+        sr.className = 'sr-only';
+        sr.textContent = el.textContent;
+        el.parentNode.insertBefore(sr, el);
+        el.setAttribute('aria-hidden', 'true');
+        el.style.minWidth = el.getBoundingClientRect().width + 'px'; // sem salto de layout
+        el.textContent = '0';
+      });
+
+      function contar(el) {
+        var final = Number(el.dataset.final), dur = final < 50 ? 900 : 1500, t0 = null;
+        function passo(t) {
+          if (t0 === null) t0 = t;
+          var p = Math.min((t - t0) / dur, 1);
+          var suave = 1 - Math.pow(1 - p, 3); // easeOutCubic
+          el.textContent = fmt.format(Math.round(final * suave));
+          if (p < 1) requestAnimationFrame(passo);
+        }
+        requestAnimationFrame(passo);
+      }
+
+      var obsKpi = new IntersectionObserver(function (entradas) {
+        entradas.forEach(function (e) {
+          if (!e.isIntersecting) return;
+          e.target.querySelectorAll('.kpi-valor[data-final]').forEach(contar);
+          obsKpi.unobserve(e.target);
+        });
+      }, { threshold: 0.4 });
+      var faixa = document.querySelector('.kpi-faixa');
+      if (faixa) obsKpi.observe(faixa);
+    })();
+
+    /* ---- FIM DOS SCRIPTS (FAQ usa <details> nativo, sem JS) ---- */
+  </script>
+</body>
+</html>
